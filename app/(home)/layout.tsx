@@ -1,7 +1,11 @@
-import type { ReactNode } from 'react';
-import { HomeLayout } from 'fumadocs-ui/layouts/home';
-import { baseOptions } from '@/app/layout.config';
+import { HomeLayout as FumaHomeLayout } from "fumadocs-ui/layouts/home";
+import { baseOptions } from "@/components/shared";
+import { type NextPage } from "next";
 
-export default function Layout({ children }: { children: ReactNode }) {
-  return <HomeLayout {...baseOptions}>{children}</HomeLayout>;
-}
+const HomeLayout: NextPage<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  return <FumaHomeLayout {...baseOptions}>{children}</FumaHomeLayout>;
+};
+
+export default HomeLayout;

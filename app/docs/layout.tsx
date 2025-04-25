@@ -1,12 +1,16 @@
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import type { ReactNode } from 'react';
-import { baseOptions } from '@/app/layout.config';
-import { source } from '@/lib/source';
+import { DocsLayout as FumaDocsLayout } from "fumadocs-ui/layouts/docs";
+import { baseOptions } from "@/components/shared";
+import { source } from "@/lib/source";
+import { type NextPage } from "next";
 
-export default function Layout({ children }: { children: ReactNode }) {
+const DocsLayout: NextPage<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   return (
-    <DocsLayout tree={source.pageTree} {...baseOptions}>
+    <FumaDocsLayout tree={source.pageTree} {...baseOptions}>
       {children}
-    </DocsLayout>
+    </FumaDocsLayout>
   );
-}
+};
+
+export default DocsLayout;
