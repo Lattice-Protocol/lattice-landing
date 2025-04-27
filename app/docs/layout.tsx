@@ -1,4 +1,4 @@
-import { baseOptions } from "@/components/shared";
+import { baseOptions } from "@/lib/fuma-config";
 import { source } from "@/lib/source";
 import { DocsLayout as FumaDocsLayout } from "fumadocs-ui/layouts/docs";
 import { type NextPage } from "next";

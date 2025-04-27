@@ -13,14 +13,14 @@ export const HomeHero: React.FC = () => {
       />
 
       <div className="container relative z-10 mx-auto px-4 h-[80vh] flex items-center justify-center flex-col text-center">
-        <div className="inline-flex items-center gap-2 bg-background/70 border-primary/80 text-secondary/80 rounded-full py-1 px-4 mb-4 md:mb-8 backdrop-blur-xs border">
+        <div className="inline-flex items-center gap-2 border-primary/80 rounded-full py-1 px-4 mb-4 md:mb-8 backdrop-blur-xs border">
           <div className="w-2 h-2 rounded-full bg-primary/80 animate-pulse"></div>
           <h3 className="text-xs md:text-sm font-mono">
             LLM Inference Network and OS
           </h3>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold text-secondary mb-4 max-w-4xl mx-auto px-2">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold mb-4 max-w-4xl mx-auto px-2">
           Decentralized intelligence, engineered for ownership.
         </h1>
 
@@ -36,7 +36,7 @@ export const HomeHero: React.FC = () => {
 
           <Link
             href="/docs/litepaper"
-            className="relative items-center justify-center inline-block p-4 border-primary/20 border px-5 py-3 overflow-hidden font-medium text-secondary rounded-lg shadow-2xl group hover:border-primary/40"
+            className="relative items-center justify-center inline-block p-4 border-primary/20 border px-5 py-3 overflow-hidden font-medium rounded-lg shadow-2xl group hover:border-primary/40"
           >
             <span className="absolute top-0 left-0 w-60 h-40 -mt-10 -ml-3 transition-all duration-700 bg-primary rounded-full blur-md ease" />
             <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">

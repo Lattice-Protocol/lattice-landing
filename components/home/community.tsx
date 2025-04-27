@@ -2,7 +2,7 @@ import { BulbIcon, ChatIcon } from "@/public/icons";
 import { BoltIcon } from "lucide-react";
 
 export const Community: React.FC = () => {
-  const iconClassName: string = "text-secondary w-12 h-12";
+  const iconClassName: string = "text-foreground/80 w-12 h-12";
 
   const copy: {
     icon: React.ReactNode;
@@ -30,7 +30,7 @@ export const Community: React.FC = () => {
   ];
 
   return (
-    <section className="px-16 py-24 mx-auto bg-background/80">
+    <section className="px-16 py-24 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 px-20">
         <div className="text-3xl font-mono text-left flex flex-col gap-2 justify-center">
           <h5 className="text-orange-500/80">
@@ -38,11 +38,11 @@ export const Community: React.FC = () => {
             <span className="text-sm">[munnity]</span> Owned.
           </h5>
 
-          <h5 className="text-secondary">Earn from LLM model usage</h5>
+          <h5>Earn from LLM model usage</h5>
         </div>
 
         <div className="text-left">
-          <h3 className="text-secondary text-2xl mb-4 font-bold">
+          <h3 className="text-2xl mb-4 font-bold">
             Invest into the latest LLM model and earn by powering Lattice chat
           </h3>
 
@@ -62,8 +62,8 @@ export const Community: React.FC = () => {
               <figure className="mb-6">{icon}</figure>
 
               <div className="flex flex-col gap-2 text-left">
-                <h5 className="text-secondary text-xl font-bold">{title}</h5>
-                <p className="text-secondary/80">{description}</p>
+                <h5 className="text-xl font-bold">{title}</h5>
+                <p className="text-foreground/80">{description}</p>
               </div>
             </div>
           </div>

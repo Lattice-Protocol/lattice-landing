@@ -78,13 +78,13 @@ export const Users: React.FC = () => {
   ];
 
   return (
-    <section className="bg-grid-lines relative bg-background/80">
+    <section className="bg-grid-lines">
       {copy.map(({ badge, image, title, subtitle, bullets, ctas }) => (
         <div
           key={title}
-          className="relative grid grid-cols-3 items-center justify-center mx-auto px-20 my-20"
+          className="grid grid-cols-3 items-center justify-center mx-auto px-20 my-20"
         >
-          <figure className="w-full relative flex items-center justify-center">
+          <figure className="w-full flex items-center justify-center">
             <Image
               src={image}
               alt={title}
@@ -97,15 +97,13 @@ export const Users: React.FC = () => {
 
           <div className="w-full col-span-2 h-full justify-start flex flex-col items-start gap-8 text-left">
             {badge && (
-              <div className="inline-flex items-center gap-2 bg-[#1A1310]/70 border-primary/80 text-secondary/80 rounded-full py-1 px-4 backdrop-blur-xs border">
+              <div className="inline-flex items-center gap-2 bg-[#1A1310]/70 border-primary/80 text-foreground/80 rounded-full py-1 px-4 backdrop-blur-xs border">
                 <div className="w-2 h-2 rounded-full bg-primary/80 animate-pulse" />
                 <span className="text-sm font-mono">{badge}</span>
               </div>
             )}
 
-            <h2 className="text-2xl md:text-4xl font-bold text-secondary">
-              {title}
-            </h2>
+            <h2 className="text-2xl md:text-4xl font-bold">{title}</h2>
 
             <p className="text-lg md:text-xl text-primary">{subtitle}</p>
 
@@ -123,7 +121,7 @@ export const Users: React.FC = () => {
                     fill="#E5C4A9"
                   />
 
-                  <span className="text-secondary/80 font-semibold text-lg md:text-xl">
+                  <span className="text-foreground/80 font-semibold text-lg md:text-xl">
                     {bullet}
                   </span>
                 </motion.li>
@@ -137,12 +135,12 @@ export const Users: React.FC = () => {
                   className={`glass-button flex justify-center flex-row gap-2 group items-center p-2 px-4 rounded-lg border transition-all duration-300 ${
                     primary
                       ? "bg-linear-to-r from-primary/80 to-[#FFB067]/80 text-white border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)]"
-                      : "border-primary/20 bg-[#1F1F1F] backdrop-blur-lg hover:border-primary/40 text-secondary"
+                      : "border-primary/20 bg-[#1F1F1F] backdrop-blur-lg hover:border-primary/40"
                   }`}
                 >
                   <div
                     className={`${
-                      primary ? "text-secondary" : "text-orange-600"
+                      primary ? "text-foreground" : "text-orange-600"
                     } w-6 h-6`}
                   >
                     {icon}
@@ -152,7 +150,7 @@ export const Users: React.FC = () => {
 
                   <CaretRightIcon
                     className={`${
-                      primary ? "text-secondary" : "text-primary"
+                      primary ? "text-foreground" : "text-primary"
                     } h-4 group-hover:text-orange-600 transition-all duration-300`}
                   />
                 </button>

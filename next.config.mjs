@@ -13,6 +13,15 @@ const config = {
       },
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "cdn.simpleicons.org",
+        protocol: "https",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default withMDX(config);

@@ -1,4 +1,4 @@
-import { baseOptions } from "@/components/shared";
+import { baseOptions } from "@/lib/fuma-config";
 import { HomeLayout as FumaHomeLayout } from "fumadocs-ui/layouts/home";
 import { type NextPage } from "next";
 

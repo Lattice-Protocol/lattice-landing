@@ -1,4 +1,10 @@
-import { HomeHero, Community, Users } from "@/components/home";
+import {
+  HomeHero,
+  Community,
+  Users,
+  LLMOS,
+  VibeStudio,
+} from "@/components/home";
 import { type NextPage } from "next";
 
 const HomePage: NextPage = () => {
@@ -7,6 +13,8 @@ const HomePage: NextPage = () => {
       <HomeHero />
       <Community />
       <Users />
+      <LLMOS />
+      <VibeStudio />
     </>
   );
 };
