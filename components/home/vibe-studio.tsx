@@ -79,8 +79,8 @@ export const VibeStudio: React.FC = () => {
   ];
 
   return (
-    <section className="flex items-center gap-y-12 px-40 pb-20">
-      <div className="w-full text-left">
+    <section className="flex items-center gap-y-12 px-36 pb-20">
+      <div className="w-full ">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +138,7 @@ export const VibeStudio: React.FC = () => {
 `}
         </TerminalText>
 
-        <div className="mt-2 text-left w-fit">
+        <div className="mt-2 w-fit">
           {copy.map(({ text, delay, animated, className }) =>
             animated ? (
               <TerminalTextAnimated

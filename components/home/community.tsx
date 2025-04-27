@@ -30,9 +30,9 @@ export const Community: React.FC = () => {
   ];
 
   return (
-    <section className="px-16 py-24 mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 px-20">
-        <div className="text-3xl font-mono text-left flex flex-col gap-2 justify-center">
+    <section className="px-36 py-24 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="text-3xl font-mono flex flex-col gap-2 justify-center">
           <h5 className="text-orange-500/80">
             People's AI. Co
             <span className="text-sm">[munnity]</span> Owned.
@@ -41,7 +41,7 @@ export const Community: React.FC = () => {
           <h5>Earn from LLM model usage</h5>
         </div>
 
-        <div className="text-left">
+        <div>
           <h3 className="text-2xl mb-4 font-bold">
             Invest into the latest LLM model and earn by powering Lattice chat
           </h3>
@@ -56,12 +56,12 @@ export const Community: React.FC = () => {
         {copy.map(({ icon, title, description }) => (
           <div
             key={title}
-            className="flex flex-col px-20 border-r border-secondary/20 last:border-r-0"
+            className="flex flex-col px-20 first:pl-0 last:pr-0 border-r border-secondary/20 last:border-r-0"
           >
             <div>
               <figure className="mb-6">{icon}</figure>
 
-              <div className="flex flex-col gap-2 text-left">
+              <div className="flex flex-col gap-2">
                 <h5 className="text-xl font-bold">{title}</h5>
                 <p className="text-foreground/80">{description}</p>
               </div>

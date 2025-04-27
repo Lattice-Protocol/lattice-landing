@@ -20,7 +20,7 @@ export const LLMOS: React.FC = () => {
   ];
 
   return (
-    <section className="flex justify-between px-48 items-center py-20">
+    <section className="flex justify-between px-36 items-center py-20">
       <div className="grid grid-cols-4 gap-x-4">
         {iconSlugs.map((slug, i) => (
           <motion.div
@@ -46,7 +46,7 @@ export const LLMOS: React.FC = () => {
         ))}
       </div>
 
-      <div className="text-left">
+      <div className="">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

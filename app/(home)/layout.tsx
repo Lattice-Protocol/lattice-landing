@@ -8,7 +8,7 @@ const HomeLayout: NextPage<{
   return (
     <FumaHomeLayout
       {...baseOptions}
-      className="flex flex-1 flex-col justify-center text-center"
+      className="flex flex-1 flex-col justify-center"
     >
       {children}
     </FumaHomeLayout>

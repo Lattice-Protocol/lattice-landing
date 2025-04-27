@@ -78,24 +78,24 @@ export const Users: React.FC = () => {
   ];
 
   return (
-    <section className="bg-grid-lines">
+    <section className="bg-grid-lines px-36">
       {copy.map(({ badge, image, title, subtitle, bullets, ctas }) => (
         <div
           key={title}
-          className="grid grid-cols-3 items-center justify-center mx-auto px-20 my-20"
+          className="grid grid-cols-3 items-center justify-between mx-auto my-20"
         >
           <figure className="w-full flex items-center justify-center">
             <Image
               src={image}
               alt={title}
-              height={320}
-              width={320}
-              className="rounded-xl mx-auto"
+              height={360}
+              width={360}
+              className="rounded-xl mr-auto"
               priority
             />
           </figure>
 
-          <div className="w-full col-span-2 h-full justify-start flex flex-col items-start gap-8 text-left">
+          <div className="w-full col-span-2 h-full justify-start flex flex-col items-start gap-8">
             {badge && (
               <div className="inline-flex items-center gap-2 bg-[#1A1310]/70 border-primary/80 text-foreground/80 rounded-full py-1 px-4 backdrop-blur-xs border">
                 <div className="w-2 h-2 rounded-full bg-primary/80 animate-pulse" />
