@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "../ui";
 import {
   ArrowRightIcon,
   BulbIcon,
@@ -96,12 +97,7 @@ export const Users: React.FC = () => {
           </figure>
 
           <div className="w-full col-span-2 h-full justify-start flex flex-col items-start gap-8">
-            {badge && (
-              <div className="inline-flex items-center gap-2 bg-[#1A1310]/70 border-primary/80 text-foreground/80 rounded-full py-1 px-4 backdrop-blur-xs border">
-                <div className="w-2 h-2 rounded-full bg-primary/80 animate-pulse" />
-                <span className="text-sm font-mono">{badge}</span>
-              </div>
-            )}
+            {badge && <Badge variant="default">{badge}</Badge>}
 
             <h2 className="text-2xl md:text-4xl font-bold">{title}</h2>
 

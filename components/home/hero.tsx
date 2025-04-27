@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,12 +14,9 @@ export const HomeHero: React.FC = () => {
       />
 
       <div className="container relative z-10 mx-auto px-4 h-[80vh] flex items-center justify-center flex-col text-center">
-        <div className="inline-flex items-center gap-2 border-primary/80 rounded-full py-1 px-4 mb-4 md:mb-8 backdrop-blur-xs border">
-          <div className="w-2 h-2 rounded-full bg-primary/80 animate-pulse"></div>
-          <h3 className="text-xs md:text-sm font-mono">
-            LLM Inference Network and OS
-          </h3>
-        </div>
+        <Badge variant="default" className="mb-4">
+          LLM Inference Network and OS
+        </Badge>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold mb-4 max-w-4xl mx-auto px-2">
           Decentralized intelligence, engineered for ownership.

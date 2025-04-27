@@ -34,9 +34,9 @@ export const Blogs: React.FC = () => {
         {copy.map(({ title, description, image, link }) => (
           <article
             key={title}
-            className="flex flex-col w-2xl items-center bg-[#1A1310]/70 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300"
+            className="relative flex flex-col w-96 items-center bg-[#1A1310]/70 rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-300"
           >
-            <figure className="relative w-full h-48 md:h-96">
+            <figure className="relative w-full h-80">
               <Image
                 src={image}
                 alt="Lattice AI"

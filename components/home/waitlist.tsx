@@ -1,10 +1,11 @@
+import { Badge } from "../ui";
 import Image from "next/image";
 
 export const Waitlist: React.FC = () => {
   return (
     <section className="min-h-[400px] md:min-h-[600px] w-full bg-[#0E0908]/80 px-36">
       <div className="flex flex-col md:flex-row w-full items-center">
-        <figure className="relative w-[40rem] h-[40rem]">
+        <figure className="relative w-[36rem] h-[36rem]">
           <Image
             src="/images/home/halo.png"
             alt="Lattice AI"
@@ -14,10 +15,7 @@ export const Waitlist: React.FC = () => {
         </figure>
 
         <div className="flex flex-col gap-6 mx-auto p-4 md:p-0">
-          <div className="inline-flex items-center gap-2 bg-[#1A1310]/70 border-primary/80 text-foreground/80 rounded-full py-1 px-4 w-fit backdrop-blur-xs border">
-            <div className="w-2 h-2 rounded-full bg-primary/80 animate-pulse"></div>
-            <span className="text-sm font-mono">Early Access</span>
-          </div>
+          <Badge variant="default">Early Access</Badge>
 
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Join the Waitlist
