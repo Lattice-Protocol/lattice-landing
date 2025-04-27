@@ -1,5 +1,5 @@
-import { HomeLayout as FumaHomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions } from "@/components/shared";
+import { HomeLayout as FumaHomeLayout } from "fumadocs-ui/layouts/home";
 import { type NextPage } from "next";
 
 const HomeLayout: NextPage<{
