@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#1A1310]/80 py-12 px-36 flex flex-col items-center mt-20">
+    <footer className="bg-[#1A1310]/80 py-12 px-36 flex flex-col items-center">
       <div className="pb-12 text-center">
         <h5 className="text-3xl md:text-4xl font-bold mb-6">
           The next chapter of AI is yours.
