@@ -18,3 +18,7 @@ export interface TerminalTextAnimatedProps extends MotionProps {
   delay?: number;
   as?: React.ElementType;
 }
+
+export interface FullLogoProps {
+  className?: string;
+}

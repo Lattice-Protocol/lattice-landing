@@ -32,7 +32,10 @@ export const Blogs: React.FC = () => {
 
       <main className="flex gap-8">
         {copy.map(({ title, description, image, link }) => (
-          <article className="flex flex-col w-2xl items-center bg-[#1A1310]/70 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300">
+          <article
+            key={title}
+            className="flex flex-col w-2xl items-center bg-[#1A1310]/70 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300"
+          >
             <figure className="relative w-full h-48 md:h-96">
               <Image
                 src={image}

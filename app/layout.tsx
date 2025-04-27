@@ -1,4 +1,5 @@
 import "./global.css";
+import { Footer } from "@/components/shared";
 import { RootProvider } from "fumadocs-ui/provider";
 import { type NextPage } from "next";
 import { Inter } from "next/font/google";
@@ -13,7 +14,10 @@ const RootLayout: NextPage<{
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>
+          {children}
+          <Footer />
+        </RootProvider>
       </body>
     </html>
   );
