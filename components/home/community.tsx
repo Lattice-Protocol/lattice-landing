@@ -1,7 +1,7 @@
-import { CustomIcon } from "../shared/custom-icon";
+import { BulbIcon, ChatIcon } from "@/public/icons";
 import { BoltIcon } from "lucide-react";
 
-export const HomeSectionTwo: React.FC = () => {
+export const Community: React.FC = () => {
   const iconClassName: string = "text-secondary w-12 h-12";
 
   const copy: {
@@ -10,13 +10,13 @@ export const HomeSectionTwo: React.FC = () => {
     description: string;
   }[] = [
     {
-      icon: <CustomIcon iconName="bulb-icon" className={iconClassName} />,
+      icon: <BulbIcon className={iconClassName} />,
       title: "Invest & Power OSS Models",
       description:
         "Pool capital to fund open-source language models. These models power the Lattice platform, with revenue shared as reward.",
     },
     {
-      icon: <CustomIcon iconName="chat-icon" className={iconClassName} />,
+      icon: <ChatIcon className={iconClassName} />,
       title: "AI Chat, Powered by the Crowd",
       description:
         "Open-source. Crypto-native. Agent-integrated. No subscriptions. No gatekeepers. Just pay-per-query freedom.",

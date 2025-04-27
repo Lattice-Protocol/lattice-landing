@@ -1,2 +1,3 @@
+export { Community } from "./community";
 export { HomeHero } from "./hero";
-export { HomeSectionTwo } from "./section-two";
+export { Users } from "./users";
