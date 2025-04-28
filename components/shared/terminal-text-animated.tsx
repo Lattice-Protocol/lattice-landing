@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import type { TerminalTextAnimatedProps } from "@/utils/types/shared.types";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
@@ -10,7 +9,7 @@ export const TerminalTextAnimated: React.FC<TerminalTextAnimatedProps> = ({
   className,
   duration = 60,
   delay = 0,
-  as: Component = "span",
+  as: Component = "p",
   ...props
 }) => {
   const MotionComponent = motion.create(Component, {
@@ -47,11 +46,7 @@ export const TerminalTextAnimated: React.FC<TerminalTextAnimatedProps> = ({
   }, [children, duration, started]);
 
   return (
-    <MotionComponent
-      ref={elementRef}
-      className={cn("text-sm font-normal tracking-tight", className)}
-      {...props}
-    >
+    <MotionComponent ref={elementRef} className={className} {...props}>
       {displayedText}
     </MotionComponent>
   );

@@ -138,7 +138,7 @@ export const VibeStudio: React.FC = () => {
 `}
         </TerminalText>
 
-        <div className="mt-2 w-fit">
+        <div className="mt-2 w-fit text-sm">
           {copy.map(({ text, delay, animated, className }) =>
             animated ? (
               <TerminalTextAnimated

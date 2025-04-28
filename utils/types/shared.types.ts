@@ -6,7 +6,7 @@ export interface TerminalProps {
 }
 
 export interface TerminalTextProps extends MotionProps {
-  children: React.ReactNode;
+  children: string;
   delay?: number;
   className?: string;
 }
