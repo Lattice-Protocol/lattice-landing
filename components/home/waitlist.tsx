@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const Waitlist: React.FC = () => {
   return (
-    <section className="min-h-[400px] md:min-h-[600px] w-full bg-[#0E0908]/80 px-36 mb-20">
+    <section className="min-h-[400px] md:min-h-[600px] w-full px-36 mb-20">
       <div className="flex flex-col md:flex-row w-full items-center">
         <figure className="relative w-[36rem] h-[36rem]">
           <Image

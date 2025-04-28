@@ -91,6 +91,7 @@ export const Footer: React.FC = () => {
         <div className="flex items-center gap-4 justify-center">
           {trialCopy.map(({ title, onClick }) => (
             <button
+              key={title}
               className="glass-button bg-primary text-white"
               onClick={onClick}
             >
