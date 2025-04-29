@@ -1,5 +1,5 @@
-import { docsSource } from "@/lib/source";
+import { docsLoader } from "@/lib/source";
 import { createFromSource } from "fumadocs-core/search/server";
 
-// TODO: check for blogs
-export const { GET } = createFromSource(docsSource);
+// TODO: check for blogs & litepaper
+export const { GET } = createFromSource(docsLoader);
