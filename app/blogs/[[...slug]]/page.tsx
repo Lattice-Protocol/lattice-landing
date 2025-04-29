@@ -1,4 +1,4 @@
-import { docsSource } from "@/lib/source";
+import { blogsSource } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import {
@@ -11,7 +11,7 @@ import { type NextPage } from "next";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  return docsSource.generateParams();
+  return blogsSource.generateParams();
 }
 
 export async function generateMetadata({
@@ -22,7 +22,7 @@ export async function generateMetadata({
   }>;
 }) {
   const { slug } = await params;
-  const page = docsSource.getPage(slug);
+  const page = blogsSource.getPage(slug);
   if (!page) notFound();
 
   return {
@@ -37,7 +37,7 @@ const Page: NextPage<{
   }>;
 }> = async ({ params }) => {
   const { slug } = await params;
-  const page = docsSource.getPage(slug);
+  const page = blogsSource.getPage(slug);
   if (!page) notFound();
 
   const MDXContent = page.data.body;
@@ -50,7 +50,7 @@ const Page: NextPage<{
         <MDXContent
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(docsSource, page),
+            a: createRelativeLink(blogsSource, page),
           })}
         />
       </DocsBody>

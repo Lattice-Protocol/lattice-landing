@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
     onClick: React.MouseEventHandler<HTMLButtonElement>;
   }[] = [
     {
-      title: "Try Mistral AI",
+      title: "Try Lattice AI",
       onClick: () => {},
     },
     {
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
     }[];
   }[] = [
     {
-      title: "Why Mistral",
+      title: "Why Lattice",
       links: [
         { content: "About us", href: "/" },
         { content: "Our customers", href: "/" },
@@ -42,14 +42,6 @@ export const Footer: React.FC = () => {
         { content: "Partners", href: "/" },
         { content: "Research", href: "/" },
         { content: "Documentation", href: "/" },
-      ],
-    },
-    {
-      title: "Build",
-      links: [
-        { content: "La Plateforme", href: "/" },
-        { content: "Le Chat", href: "/" },
-        { content: "Try the API", href: "/" },
       ],
     },
     {
