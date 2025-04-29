@@ -9,6 +9,10 @@ export const blogsSource = defineDocs({
   dir: "components/blogs",
 });
 
+export const litepaperSource = defineDocs({
+  dir: "components/litepaper",
+});
+
 export default defineConfig({
   mdxOptions: {
     // MDX options

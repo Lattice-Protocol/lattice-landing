@@ -20,13 +20,13 @@ export const baseOptions: BaseLayoutProps = {
     },
     {
       text: "Litepaper",
-      url: "/docs/litepaper",
+      url: "/litepaper",
       active: "nested-url",
     },
     {
       text: "Blogs",
       url: "/blogs",
-      active: "nested-url",
+      active: "none",
     },
   ],
 };

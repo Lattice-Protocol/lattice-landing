@@ -1,4 +1,4 @@
-import { docsLoader } from "@/lib/source";
+import { litepaperLoader } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import {
@@ -11,7 +11,7 @@ import { type NextPage } from "next";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  return docsLoader.generateParams();
+  return litepaperLoader.generateParams();
 }
 
 export async function generateMetadata({
@@ -22,7 +22,7 @@ export async function generateMetadata({
   }>;
 }) {
   const { slug } = await params;
-  const page = docsLoader.getPage(slug);
+  const page = litepaperLoader.getPage(slug);
   if (!page) notFound();
 
   return {
@@ -37,7 +37,7 @@ const Page: NextPage<{
   }>;
 }> = async ({ params }) => {
   const { slug } = await params;
-  const page = docsLoader.getPage(slug);
+  const page = litepaperLoader.getPage(slug);
   if (!page) notFound();
 
   const MDXContent = page.data.body;
@@ -50,7 +50,7 @@ const Page: NextPage<{
         <MDXContent
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(docsLoader, page),
+            a: createRelativeLink(litepaperLoader, page),
           })}
         />
       </DocsBody>

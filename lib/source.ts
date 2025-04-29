@@ -1,12 +1,17 @@
-import { blogPosts, docs } from "@/.source";
+import { blogsSource, docsSource, litepaperSource } from "@/.source";
 import { loader } from "fumadocs-core/source";
 
-export const docsSource = loader({
+export const docsLoader = loader({
   baseUrl: "/docs",
-  source: docs.toFumadocsSource(),
+  source: docsSource.toFumadocsSource(),
 });
 
-export const blogsSource = loader({
+export const blogsLoader = loader({
   baseUrl: "/blogs",
-  source: blogPosts.toFumadocsSource(),
+  source: blogsSource.toFumadocsSource(),
+});
+
+export const litepaperLoader = loader({
+  baseUrl: "/litepaper",
+  source: litepaperSource.toFumadocsSource(),
 });
