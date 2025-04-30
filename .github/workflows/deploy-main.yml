@@ -1,12 +1,15 @@
 name: Deploy to EC2 (Main)
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["CI"]
+    branches: [main]
+    types:
+      - completed
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -26,4 +29,3 @@ jobs:
             pnpm run build
             pm2 restart nextjs-app || pm2 start pnpm --name "nextjs-app" -- start
             sudo systemctl reload nginx
-INNER

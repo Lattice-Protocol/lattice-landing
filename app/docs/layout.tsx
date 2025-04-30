@@ -1,4 +1,4 @@
-import { baseOptions } from "@/lib/fuma-config";
+import { docsOptions } from "@/lib/fuma-config";
 import { docsLoader } from "@/lib/source";
 import { DocsLayout as FumaDocsLayout } from "fumadocs-ui/layouts/docs";
 import { type NextPage } from "next";
@@ -7,7 +7,7 @@ const DocsLayout: NextPage<{
   children: React.ReactNode;
 }> = ({ children }) => {
   return (
-    <FumaDocsLayout tree={docsLoader.pageTree} {...baseOptions}>
+    <FumaDocsLayout tree={docsLoader.pageTree} {...docsOptions}>
       {children}
     </FumaDocsLayout>
   );

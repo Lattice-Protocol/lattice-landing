@@ -12,9 +12,9 @@ const compat = new FlatCompat({
   },
 });
 
-export default [
+const config = [
   {
-    ignores: ["node_modules/**", ".next/**", "out/**", "dist/**"],
+    ignores: ["node_modules/**", ".next/**", "out/**", "dist/**", ".source/**"],
   },
   ...compat.extends(
     "plugin:@typescript-eslint/recommended",
@@ -24,7 +24,7 @@ export default [
     "next/typescript"
   ),
   {
-    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.mdx"],
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     languageOptions: {
       parser: await import("@typescript-eslint/parser"),
       parserOptions: {
@@ -55,4 +55,23 @@ export default [
       "@typescript-eslint/no-explicit-any": "warn",
     },
   },
+  {
+    files: ["**/*.mdx"],
+    languageOptions: {
+      parser: await import("eslint-mdx"),
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      mdx: await import("eslint-plugin-mdx"),
+    },
+    rules: {
+      "mdx/no-unescaped-entities": "off",
+      "mdx/no-unused-expressions": "off",
+    },
+  },
 ];
+
+export default config;

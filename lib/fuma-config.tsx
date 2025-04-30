@@ -1,32 +1,50 @@
-import { FullLogo } from "@/components/shared";
+import { FullLogo, PageNavbar } from "@/components/shared";
+import { BulbIcon, ChatIcon, RadioIcon, ScrollIcon } from "@/public/icons";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import { BookOpenIcon, NewspaperIcon } from "lucide-react";
 
-/**
- * Shared layout configurations
- *
- * you can customise layouts individually from:
- * Home Layout: app/(home)/layout.tsx
- * Docs Layout: app/docs/layout.tsx
- */
-export const baseOptions: BaseLayoutProps = {
+const commonNavLinks: BaseLayoutProps["links"] = [
+  {
+    text: "Litepaper",
+    url: "/litepaper",
+    icon: <ScrollIcon />,
+  },
+  {
+    text: "Community",
+    url: "/community",
+    icon: <RadioIcon />,
+  },
+  {
+    text: "Documentation",
+    url: "/docs",
+    icon: <BookOpenIcon className="w-4 h-4" />,
+  },
+  {
+    text: "Power Nodes",
+    url: "/power-nodes",
+    icon: <BulbIcon />,
+  },
+  {
+    text: "Blogs",
+    url: "/blogs",
+    icon: <NewspaperIcon className="w-4 h-4" />,
+  },
+  {
+    text: "Chat",
+    url: "/chat",
+    icon: <ChatIcon />,
+  },
+];
+
+export const pageOptions: BaseLayoutProps = {
+  nav: {
+    component: <PageNavbar commonLinks={commonNavLinks} />,
+  },
+};
+
+export const docsOptions: BaseLayoutProps = {
   nav: {
     title: <FullLogo />,
   },
-  links: [
-    {
-      text: "Documentation",
-      url: "/docs",
-      active: "nested-url",
-    },
-    {
-      text: "Litepaper",
-      url: "/litepaper",
-      active: "nested-url",
-    },
-    {
-      text: "Blogs",
-      url: "/blogs",
-      active: "none",
-    },
-  ],
+  links: commonNavLinks,
 };
