@@ -17,6 +17,7 @@ export const blogsSource = defineCollections({
   schema: frontmatterSchema.extend({
     author: z.string(),
     date: z.string().date().or(z.date()).optional(),
+    image: z.string(),
   }),
 });
 

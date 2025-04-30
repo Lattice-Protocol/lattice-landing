@@ -1,16 +1,11 @@
-import { docsOptions } from "@/lib/fuma-config";
-import { blogsLoader } from "@/lib/source";
-import { DocsLayout as FumaDocsLayout } from "fumadocs-ui/layouts/docs";
+import { pageOptions } from "@/lib/fuma-config";
+import { HomeLayout as FumaHomeLayout } from "fumadocs-ui/layouts/home";
 import { type NextPage } from "next";
 
 const DocsLayout: NextPage<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  return (
-    <FumaDocsLayout tree={blogsLoader.pageTree} {...docsOptions}>
-      {children}
-    </FumaDocsLayout>
-  );
+  return <FumaHomeLayout {...pageOptions}>{children}</FumaHomeLayout>;
 };
 
 export default DocsLayout;

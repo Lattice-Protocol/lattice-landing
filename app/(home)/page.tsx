@@ -8,7 +8,7 @@ import {
   Blogs,
 } from "@/components/home";
 import { blogsLoader } from "@/lib/source";
-import { type BlogsPreviewProps } from "@/utils/types/shared.types";
+import { type BlogType } from "@/utils/types/shared.types";
 import { type NextPage } from "next";
 
 const HomePage: NextPage = () => {
@@ -25,7 +25,7 @@ const HomePage: NextPage = () => {
       <Users />
       <LLMOS />
       <VibeStudio />
-      <Blogs blogs={blogs.slice(0, 2) as BlogsPreviewProps[]} />
+      <Blogs blogs={blogs.slice(0, 2) as BlogType[]} />
       <Waitlist />
     </>
   );

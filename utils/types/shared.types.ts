@@ -33,7 +33,7 @@ export interface PageNavItemProps {
   item: LinkItemType;
 }
 
-export interface BlogsPreviewProps {
+export interface BlogType {
   file: {
     dirname: string;
     name: string;
@@ -46,7 +46,7 @@ export interface BlogsPreviewProps {
   data: {
     title: string;
     description: string;
-    icon: string;
+    image: string;
     full: boolean;
     author: string;
     date: Date;

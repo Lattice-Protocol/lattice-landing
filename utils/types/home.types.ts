@@ -1,5 +1,5 @@
-import { type BlogsPreviewProps } from "./shared.types";
+import { type BlogType } from "./shared.types";
 
 export interface BlogsProps {
-  blogs: BlogsPreviewProps[];
+  blogs: BlogType[];
 }

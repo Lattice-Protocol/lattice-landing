@@ -1,4 +1,3 @@
-export { BlogPreview } from "./blog-preview";
 export { Footer } from "./footer";
 export { FullLogo } from "./full-logo";
 export { PageNavItem } from "./page-nav-item";
