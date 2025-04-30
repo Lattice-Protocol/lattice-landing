@@ -1,5 +1,3 @@
-"use client";
-
 import { BlogsHero } from "@/components/blogs";
 import { blogsLoader } from "@/lib/source";
 import type { BlogType } from "@/utils/types/shared.types";

@@ -1,13 +1,8 @@
 import { blogsLoader } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
-import { createRelativeLink } from "fumadocs-ui/mdx";
-import {
-  DocsPage,
-  DocsBody,
-  DocsDescription,
-  DocsTitle,
-} from "fumadocs-ui/page";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 import { Metadata, type NextPage } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: {
@@ -20,7 +15,8 @@ export async function generateMetadata(props: {
 
   return {
     title: page.data.title,
-    description: page.data.description ?? "Lattice AI Blogs",
+    description:
+      page.data.description ?? "The library for building documentation sites",
   };
 }
 
@@ -38,23 +34,49 @@ const Page: NextPage<{
   const { slug } = await params;
   if (!slug) notFound();
   const page = blogsLoader.getPage([slug]);
-  if (!page) notFound();
 
-  const MDXContent = page.data.body;
+  if (!page) notFound();
+  const { body: Mdx, toc } = await page.data.load();
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
-        <MDXContent
-          components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(blogsLoader, page),
-          })}
-        />
-      </DocsBody>
-    </DocsPage>
+    <>
+      <div
+        className="container rounded-xl border py-12 md:px-8"
+        style={{
+          backgroundColor: "black",
+          backgroundImage: [
+            "linear-gradient(140deg, hsla(274,94%,54%,0.3), transparent 50%)",
+            "linear-gradient(to left top, hsla(260,90%,50%,0.8), transparent 50%)",
+            "radial-gradient(circle at 100% 100%, hsla(240,100%,82%,1), hsla(240,40%,40%,1) 17%, hsla(240,40%,40%,0.5) 20%, transparent)",
+          ].join(", "),
+          backgroundBlendMode: "difference, difference, normal",
+        }}
+      >
+        <h1 className="mb-2 text-3xl font-bold text-white">
+          {page.data.title}
+        </h1>
+        <p className="mb-4 text-white/80">{page.data.description}</p>
+        <Link href="/blog">Back</Link>
+      </div>
+      <article className="container flex flex-col px-0 py-8 lg:flex-row lg:px-4">
+        <div className="prose min-w-0 flex-1 p-4">
+          <InlineTOC items={toc} />
+          <Mdx components={getMDXComponents()} />
+        </div>
+        <div className="flex flex-col gap-4 border-l p-4 text-sm lg:w-[250px]">
+          <div>
+            <p className="mb-1 text-fd-muted-foreground">Written by</p>
+            <p className="font-medium">{page.data.author}</p>
+          </div>
+          <div>
+            <p className="mb-1 text-sm text-fd-muted-foreground">At</p>
+            <p className="font-medium">
+              {new Date(page.data.date ?? page.file.name).toDateString()}
+            </p>
+          </div>
+        </div>
+      </article>
+    </>
   );
 };
 
