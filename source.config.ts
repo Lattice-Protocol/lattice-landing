@@ -14,6 +14,7 @@ export const docsSource = defineCollections({
 export const blogsSource = defineCollections({
   type: "doc",
   dir: "content/blogs",
+  async: true,
   schema: frontmatterSchema.extend({
     author: z.string(),
     date: z.string().date().or(z.date()).optional(),
@@ -24,6 +25,7 @@ export const blogsSource = defineCollections({
 export const litepaperSource = defineCollections({
   type: "doc",
   dir: "content/litepaper",
+  async: true,
 });
 
 export default defineConfig({

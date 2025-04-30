@@ -7,37 +7,37 @@ import {
   DocsDescription,
   DocsTitle,
 } from "fumadocs-ui/page";
-import { type NextPage } from "next";
+import { Metadata, type NextPage } from "next";
 import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
-  return blogsLoader.generateParams();
-}
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const page = blogsLoader.getPage([params.slug]);
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{
-    slug?: string[];
-  }>;
-}) {
-  const { slug } = await params;
-  const page = blogsLoader.getPage(slug);
   if (!page) notFound();
 
   return {
     title: page.data.title,
-    description: page.data.description,
+    description: page.data.description ?? "Lattice AI Blogs",
   };
+}
+
+export function generateStaticParams(): { slug: string }[] {
+  return blogsLoader.getPages().map((page) => ({
+    slug: page.slugs[0],
+  }));
 }
 
 const Page: NextPage<{
   params: Promise<{
-    slug?: string[];
+    slug?: string;
   }>;
 }> = async ({ params }) => {
   const { slug } = await params;
-  const page = blogsLoader.getPage(slug);
+  if (!slug) notFound();
+  const page = blogsLoader.getPage([slug]);
   if (!page) notFound();
 
   const MDXContent = page.data.body;

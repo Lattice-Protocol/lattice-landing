@@ -51,7 +51,7 @@ export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
               </p>
 
               <p className="text-foreground/80 text-sm mt-2">
-                {blog.data.date.toLocaleDateString()}
+                {blog.data.date}
               </p>
             </div>
           </Link>

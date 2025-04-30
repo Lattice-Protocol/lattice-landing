@@ -49,6 +49,6 @@ export interface BlogType {
     image: string;
     full: boolean;
     author: string;
-    date: Date;
+    date: string;
   };
 }

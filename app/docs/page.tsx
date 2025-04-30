@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 
-export const DocsPage: NextPage = () => {
+const DocsPage: NextPage = () => {
   return <div>Docs</div>;
 };
 
