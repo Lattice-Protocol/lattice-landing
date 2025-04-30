@@ -1,0 +1,29 @@
+name: Deploy to EC2 (Main)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'INNER'
+            cd ${{ secrets.EC2_PATH }}
+            git pull origin main
+            pnpm install
+            pnpm run build
+            pm2 restart nextjs-app || pm2 start pnpm --name "nextjs-app" -- start
+            sudo systemctl reload nginx
+INNER
