@@ -24,7 +24,7 @@ const config = [
     "next/typescript"
   ),
   {
-    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.mdx"],
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     languageOptions: {
       parser: await import("@typescript-eslint/parser"),
       parserOptions: {
@@ -53,6 +53,23 @@ const config = [
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/no-explicit-any": "warn",
+    },
+  },
+  {
+    files: ["**/*.mdx"],
+    languageOptions: {
+      parser: await import("eslint-mdx"),
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      mdx: await import("eslint-plugin-mdx"),
+    },
+    rules: {
+      "mdx/no-unescaped-entities": "off",
+      "mdx/no-unused-expressions": "off",
     },
   },
 ];

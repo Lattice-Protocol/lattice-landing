@@ -1,4 +1,4 @@
-import { BlogType } from "./shared.types";
+import type { BlogType } from "./shared.types";
 
 export interface BlogsHeroProps {
   blogs: BlogType[];
