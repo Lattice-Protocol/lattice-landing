@@ -1,20 +1,20 @@
-"use client";
-
+// "use client";
 import type { BlogsHeroProps } from "@/utils/types/blogs.types";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+
+// import { useState } from "react";
 
 export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
   const defaultBannerSrc = "/images/home/hero-bg.png";
 
-  const [bannerSrc, setBannerSrc] = useState<string>(defaultBannerSrc);
+  // const [bannerSrc, setBannerSrc] = useState<string>(defaultBannerSrc);
 
   return (
     <section className="p-8 w-9/12 mx-auto">
       <div className="relative h-96">
         <Image
-          src={bannerSrc}
+          src={defaultBannerSrc}
           alt="Lattice AI Blog"
           fill
           unoptimized
@@ -32,12 +32,12 @@ export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
             key={blog.data.title}
             href={blog.url}
             className="p-4 border border-primary/20"
-            onMouseEnter={() => {
-              setBannerSrc(blog.data.image);
-            }}
-            onMouseLeave={() => {
-              setBannerSrc(defaultBannerSrc);
-            }}
+            // onMouseEnter={() => {
+            //   setBannerSrc(blog.data.image);
+            // }}
+            // onMouseLeave={() => {
+            //   setBannerSrc(defaultBannerSrc);
+            // }}
           >
             <h3 className="font-bold text-foreground">{blog.data.title}</h3>
 
