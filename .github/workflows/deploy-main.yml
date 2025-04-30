@@ -26,4 +26,3 @@ jobs:
             pnpm run build
             pm2 restart nextjs-app || pm2 start pnpm --name "nextjs-app" -- start
             sudo systemctl reload nginx
-INNER
