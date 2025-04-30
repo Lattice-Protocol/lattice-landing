@@ -13,7 +13,7 @@ export const HomeHero: React.FC = () => {
         unoptimized
       />
 
-      <div className="container relative z-10 mx-auto px-4 h-[80vh] flex items-center justify-center flex-col text-center">
+      <div className="relative mx-auto px-4 h-full flex items-center justify-center flex-col text-center">
         <Badge variant="default" className="mb-4">
           LLM Inference Network and OS
         </Badge>

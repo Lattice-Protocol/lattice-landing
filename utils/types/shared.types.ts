@@ -1,4 +1,5 @@
 import type { MotionProps } from "framer-motion";
+import type { LinkItemType } from "fumadocs-ui/layouts/shared";
 
 export interface TerminalProps {
   children: React.ReactNode;
@@ -20,5 +21,14 @@ export interface TerminalTextAnimatedProps extends MotionProps {
 }
 
 export interface FullLogoProps {
+  size?: number;
   className?: string;
+}
+
+export interface PageNavbarProps {
+  commonLinks: LinkItemType[];
+}
+
+export interface PageNavItemProps {
+  item: LinkItemType;
 }
