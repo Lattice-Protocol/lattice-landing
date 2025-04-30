@@ -1,7 +1,7 @@
 import { FullLogo, PageNavbar } from "@/components/shared";
 import { BulbIcon, ChatIcon, RadioIcon, ScrollIcon } from "@/public/icons";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { NewspaperIcon } from "lucide-react";
+import { BookOpenIcon, NewspaperIcon } from "lucide-react";
 
 const commonNavLinks: BaseLayoutProps["links"] = [
   {
@@ -17,7 +17,7 @@ const commonNavLinks: BaseLayoutProps["links"] = [
   {
     text: "Documentation",
     url: "/docs",
-    active: "nested-url",
+    icon: <BookOpenIcon className="w-4 h-4" />,
   },
   {
     text: "Power Nodes",

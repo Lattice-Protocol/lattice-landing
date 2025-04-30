@@ -14,7 +14,13 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ["node_modules/**", ".next/**", "out/**", "dist/**"],
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "dist/**",
+      "./source/**",
+    ],
   },
   ...compat.extends(
     "plugin:@typescript-eslint/recommended",
