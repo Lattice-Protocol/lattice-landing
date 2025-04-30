@@ -1,17 +1,18 @@
 import { blogsSource, docsSource, litepaperSource } from "@/.source";
 import { loader } from "fumadocs-core/source";
+import { createMDXSource } from "fumadocs-mdx";
 
 export const docsLoader = loader({
   baseUrl: "/docs",
-  source: docsSource.toFumadocsSource(),
+  source: createMDXSource(docsSource),
 });
 
 export const blogsLoader = loader({
   baseUrl: "/blogs",
-  source: blogsSource.toFumadocsSource(),
+  source: createMDXSource(blogsSource),
 });
 
 export const litepaperLoader = loader({
   baseUrl: "/litepaper",
-  source: litepaperSource.toFumadocsSource(),
+  source: createMDXSource(litepaperSource),
 });

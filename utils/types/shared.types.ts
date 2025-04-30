@@ -32,3 +32,23 @@ export interface PageNavbarProps {
 export interface PageNavItemProps {
   item: LinkItemType;
 }
+
+export interface BlogsPreviewProps {
+  file: {
+    dirname: string;
+    name: string;
+    path: string;
+    ext: string;
+    flattenedPath: string;
+  };
+  url: string;
+  slugs: string[];
+  data: {
+    title: string;
+    description: string;
+    icon: string;
+    full: boolean;
+    author: string;
+    date: Date;
+  };
+}
