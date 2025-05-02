@@ -1,6 +1,7 @@
 import { blogsLoader } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
-import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import { TOCItem } from "fumadocs-core/toc";
+import { ArrowLeft, Calendar, User } from "lucide-react";
 import { Metadata, type NextPage } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -39,44 +40,87 @@ const Page: NextPage<{
   const { body: Mdx, toc } = await page.data.load();
 
   return (
-    <>
-      <div
-        className="container rounded-xl border py-12 md:px-8"
-        style={{
-          backgroundColor: "black",
-          backgroundImage: [
-            "linear-gradient(140deg, hsla(274,94%,54%,0.3), transparent 50%)",
-            "linear-gradient(to left top, hsla(260,90%,50%,0.8), transparent 50%)",
-            "radial-gradient(circle at 100% 100%, hsla(240,100%,82%,1), hsla(240,40%,40%,1) 17%, hsla(240,40%,40%,0.5) 20%, transparent)",
-          ].join(", "),
-          backgroundBlendMode: "difference, difference, normal",
-        }}
-      >
-        <h1 className="mb-2 text-3xl font-bold text-white">
+    <section className="p-28">
+      <div className="flex flex-col">
+        <Link
+          href="/blogs"
+          className="group inline-flex items-center gap-2 text-muted-foreground transition hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          Back to Blogs
+        </Link>
+
+        <div className="flex gap-8 mt-8">
+          {[
+            {
+              label: "Written by",
+              value: page.data.author,
+            },
+            {
+              label: "Published on",
+              value: new Date(
+                page.data.date ?? page.file.name
+              ).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }),
+            },
+          ].map((item) => (
+            <div className="flex flex-col items-center gap-1 justify-start">
+              <p className="flex mr-auto text-sm text-muted-foreground">
+                {item.label}
+              </p>
+              <p className="flex mr-auto font-medium text-foreground/60">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <h1 className="mb-4 text-5xl font-bold text-foreground mt-8">
           {page.data.title}
         </h1>
-        <p className="mb-4 text-white/80">{page.data.description}</p>
-        <Link href="/blog">Back</Link>
+
+        {page.data.description && (
+          <p className="text-lg leading-relaxed text-foreground/80 mt-4">
+            {page.data.description}
+          </p>
+        )}
       </div>
-      <article className="container flex flex-col px-0 py-8 lg:flex-row lg:px-4">
-        <div className="prose min-w-0 flex-1 p-4">
-          <InlineTOC items={toc} />
+
+      <div className="w-full h-0 border-t border-primary/20 my-12" />
+
+      <article className="flex flex-col lg:flex-row lg:gap-12">
+        <div className="prose prose-invert min-w-0 flex-1">
           <Mdx components={getMDXComponents()} />
         </div>
-        <div className="flex flex-col gap-4 border-l p-4 text-sm lg:w-[250px]">
-          <div>
-            <p className="mb-1 text-fd-muted-foreground">Written by</p>
-            <p className="font-medium">{page.data.author}</p>
-          </div>
-          <div>
-            <p className="mb-1 text-sm text-fd-muted-foreground">At</p>
-            <p className="font-medium">
-              {new Date(page.data.date ?? page.file.name).toDateString()}
-            </p>
-          </div>
-        </div>
+
+        <aside className="sticky flex flex-col top-20 w-96 border border-primary/50 h-[36rem]">
+          <h3 className="font-semibold text-white p-4">Table of Contents</h3>
+
+          <ul className="flex flex-col min-h-1 overflow-y-auto p-4 pt-0">
+            {toc.map(({ depth, title, url }) =>
+              depth > 3 || depth === 1 ? (
+                <></>
+              ) : (
+                <TOCItem
+                  key={url}
+                  href={url}
+                  className={`${
+                    depth === 2
+                      ? "text-foreground/60 mt-4"
+                      : "text-muted-foreground pl-4 mt-2"
+                  } first:mt-0 last:mb-0 text-sm hover:text-foreground transition-colors duration-200`}
+                >
+                  {title}
+                </TOCItem>
+              )
+            )}
+          </ul>
+        </aside>
       </article>
-    </>
+    </section>
   );
 };
 
