@@ -1,7 +1,7 @@
 import { blogsLoader } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 import { TOCItem } from "fumadocs-core/toc";
-import { ArrowLeft, Calendar, User } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Metadata, type NextPage } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -67,7 +67,10 @@ const Page: NextPage<{
               }),
             },
           ].map((item) => (
-            <div className="flex flex-col items-center gap-1 justify-start">
+            <div
+              key={item.label + item.value}
+              className="flex flex-col items-center gap-1 justify-start"
+            >
               <p className="flex mr-auto text-sm text-muted-foreground">
                 {item.label}
               </p>
