@@ -43,7 +43,13 @@ export const Footer: React.FC = () => {
 
             <div className="flex gap-2">
               {socialsCopy.map(({ icon, href }) => (
-                <Link key={href} href={href} className="text-muted-foreground">
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-muted-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {icon}
                 </Link>
               ))}
