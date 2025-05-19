@@ -9,33 +9,32 @@ const commonNavLinks: BaseLayoutProps["links"] = [
     url: "/litepaper",
     icon: <ScrollIcon />,
   },
-  {
-    text: "Community",
-    url: "/community",
-    icon: <RadioIcon />,
-  },
+  // {
+  //   text: "Community",
+  //   url: "/community",
+  //   icon: <RadioIcon />,
+  // },
   {
     text: "Documentation",
     url: "/docs",
     icon: <BookOpenIcon className="w-4 h-4" />,
   },
-  {
-    text: "Power Nodes",
-    url: "/power-nodes",
-    icon: <BulbIcon />,
-  },
+  // {
+  //   text: "Power Nodes",
+  //   url: "/power-nodes",
+  //   icon: <BulbIcon />,
+  // },
   {
     text: "Blogs",
     url: "/blogs",
     icon: <NewspaperIcon className="w-4 h-4" />,
   },
-  {
-    text: "Chat",
-    url: "/chat",
-    icon: <ChatIcon />,
-  },
+  // {
+  //   text: "Chat",
+  //   url: "/chat",
+  //   icon: <ChatIcon />,
+  // },
 ];
-
 export const pageOptions: BaseLayoutProps = {
   nav: {
     component: <PageNavbar commonLinks={commonNavLinks} />,

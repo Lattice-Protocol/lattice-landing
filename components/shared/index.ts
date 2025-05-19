@@ -1,5 +1,7 @@
+export { ArticlePage } from "./article-page";
 export { Footer } from "./footer";
 export { FullLogo } from "./full-logo";
+export { Mermaid } from "./mermaid";
 export { PageNavItem } from "./page-nav-item";
 export { PageNavbar } from "./page-navbar";
 export { StructuredData } from "./structured-data";

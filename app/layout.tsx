@@ -7,6 +7,7 @@ import {
   TAGLINE,
   TWITTER_HANDLE,
 } from "@/utils/constants";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { RootProvider } from "fumadocs-ui/provider";
 import { Metadata, NextPage } from "next";
 import { Inter } from "next/font/google";
@@ -83,6 +84,8 @@ const RootLayout: NextPage<{
           <Footer />
         </RootProvider>
       </body>
+
+      <GoogleAnalytics gaId="G-DB6K47GML6" />
     </html>
   );
 };

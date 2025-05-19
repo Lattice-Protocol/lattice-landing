@@ -1,5 +1,9 @@
 import type { MotionProps } from "framer-motion";
+import type { TableOfContents } from "fumadocs-core/server";
+import type { PageData } from "fumadocs-core/source";
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
+import type { MDXProps } from "mdx/types";
+import type { FC } from "react";
 
 export interface TerminalProps {
   children: React.ReactNode;
@@ -51,4 +55,14 @@ export interface BlogType {
     author: string;
     date: string;
   };
+}
+
+export interface ArticlePageProps {
+  metadata?: {
+    title: string;
+    content: string;
+  }[];
+  data: PageData;
+  Mdx: FC<MDXProps>;
+  toc: TableOfContents;
 }
