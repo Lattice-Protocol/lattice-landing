@@ -5,11 +5,8 @@ import {
   LLMOS,
   VibeStudio,
   Waitlist,
-  Blogs,
 } from "@/components/home";
-import { blogsLoader } from "@/lib/source";
 import { DEPLOYED_URL, PROPER_NAME, TAGLINE } from "@/utils/constants";
-import { type BlogType } from "@/utils/types/shared.types";
 import { type NextPage, type Metadata } from "next";
 
 export const generateMetadata = (): Metadata => {
@@ -29,12 +26,6 @@ export const generateMetadata = (): Metadata => {
 };
 
 const HomePage: NextPage = () => {
-  const blogs = [...blogsLoader.getPages()].sort(
-    (a, b) =>
-      new Date(b.data.date ?? b.file.name).getTime() -
-      new Date(a.data.date ?? a.file.name).getTime()
-  );
-
   // Home page JSON-LD
   const homePageJsonLd = {
     "@context": "https://schema.org",
@@ -63,12 +54,12 @@ const HomePage: NextPage = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd) }}
       />
+
       <HomeHero />
       <Community />
       <Users />
       <LLMOS />
       <VibeStudio />
-      <Blogs blogs={blogs.slice(0, 2) as BlogType[]} />
       <Waitlist />
     </>
   );
