@@ -27,8 +27,11 @@ export const HomeHero: React.FC = () => {
         </h1>
 
         <h2 className="text-base sm:text-xl text-primary bg-secondary/10 w-fit px-2 sm:px-4 font-mono font-bold max-w-2xl mx-auto mb-6 sm:mb-10 backdrop-blur-xs">
-          Invest in LLMs. Earn from Usage. Power the future
-          <span className="animate-pulse duration-300">... █</span>
+          Invest in LLMs. Earn from Usage. Power the{" "}
+          <span className="whitespace-nowrap">
+            future
+            <span className="animate-pulse duration-300">... █</span>
+          </span>
         </h2>
 
         <div className="flex flex-row text-xs sm:text-sm flex-wrap gap-4 justify-center w-full max-w-md mx-auto">

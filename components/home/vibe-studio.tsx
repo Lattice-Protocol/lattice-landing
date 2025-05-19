@@ -117,7 +117,7 @@ export const VibeStudio: React.FC = () => {
         </motion.button>
       </div>
 
-      <Terminal className="mr-auto scale-[60%] md:scale-none bg-background border-primary/20 md:translate-x-0 -translate-x-1/5">
+      <Terminal className="mr-auto scale-50 sm:scale-75 md:scale-none bg-background border-primary/20 -translate-x-48 sm:-translate-x-20 md:translate-x-0">
         <TerminalText
           delay={500}
           className="text-primary whitespace-pre font-mono text-xs"
