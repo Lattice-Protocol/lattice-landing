@@ -33,19 +33,6 @@ export const HomeHero: React.FC = () => {
             <span className="animate-pulse duration-300">... █</span>
           </span>
         </h2>
-
-        <div className="flex flex-row text-xs sm:text-sm flex-wrap gap-4 justify-center w-full max-w-md mx-auto">
-          <button className="bg-primary p-2 sm:p-3 rounded-lg border border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)] transition-all duration-300 text-white">
-            Explore the Network
-          </button>
-
-          <Link
-            href="/docs/litepaper"
-            className="bg-primary p-2 sm:p-3 rounded-lg border border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)] transition-all duration-300 text-white"
-          >
-            Read the Litepaper
-          </Link>
-        </div>
       </div>
     </section>
   );

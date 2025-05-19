@@ -31,26 +31,15 @@ export const Community: React.FC = () => {
 
   return (
     <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-12 md:py-20 lg:py-24 mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-        <div className="text-2xl sm:text-3xl font-mono flex flex-col gap-2 justify-center">
-          <h5 className="text-orange-500/80">
-            People's AI. Co
-            <span className="text-xs sm:text-sm">[munnity]</span> Owned.
-          </h5>
-          <h5 className="text-lg sm:text-2xl">Earn from LLM model usage</h5>
-        </div>
-
-        <div>
-          <h3 className="text-lg sm:text-2xl mb-4 font-bold">
-            Invest into the latest LLM model and earn by powering Lattice chat
-          </h3>
-          <button className="bg-linear-to-r from-primary/80 to-[#FFB067]/80 p-2 sm:p-3 rounded-lg border border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)] transition-all duration-300 text-white">
-            Contribute to Node
-          </button>
-        </div>
+      <div className="text-2xl sm:text-3xl font-mono flex flex-col gap-2 justify-center text-center">
+        <h5 className="text-orange-500/80">
+          People's AI. Co
+          <span className="text-xs sm:text-sm">[munnity]</span> Owned.
+        </h5>
+        <h5 className="text-lg sm:text-2xl">Earn from LLM model usage</h5>
       </div>
 
-      <div className="flex flex-col lg:flex-row mt-12 md:mt-24 lg:mt-32 gap-8 lg:gap-0">
+      <div className="flex flex-col lg:flex-row mt-12 md:mt-24 gap-8 lg:gap-0">
         {copy.map(({ icon, title, description }, idx) => (
           <div
             key={title}

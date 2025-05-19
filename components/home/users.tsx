@@ -1,15 +1,8 @@
 "use client";
 
 import { Badge } from "../ui";
-import {
-  ArrowRightIcon,
-  BulbIcon,
-  CaretRightIcon,
-  ChatIcon,
-  MeterIcon,
-  RadioIcon,
-} from "@/public/icons";
 import { motion } from "framer-motion";
+import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 
 export const Users: React.FC = () => {
@@ -19,11 +12,6 @@ export const Users: React.FC = () => {
     title: string;
     subtitle: string;
     bullets: string[];
-    ctas: {
-      text: string;
-      primary: boolean;
-      icon: React.ReactNode;
-    }[];
   }[] = [
     {
       badge: "for Node Contributors",
@@ -36,18 +24,6 @@ export const Users: React.FC = () => {
         "Earn from usage of these models on the platform",
         "Build on neutral, censorship-resistant AI infrastructure",
         "Invest and Earn while powering the network",
-      ],
-      ctas: [
-        {
-          text: "Contribute a node",
-          primary: true,
-          icon: <BulbIcon />,
-        },
-        {
-          text: "View Active Nodes",
-          primary: false,
-          icon: <MeterIcon />,
-        },
       ],
     },
     {
@@ -63,24 +39,12 @@ export const Users: React.FC = () => {
         "Agentic chat with memory, tools, and functions",
         "Switch models, clients, and tools from one interface",
       ],
-      ctas: [
-        {
-          text: "Launch Chat",
-          primary: true,
-          icon: <ChatIcon />,
-        },
-        {
-          text: "Community",
-          primary: false,
-          icon: <RadioIcon />,
-        },
-      ],
     },
   ];
 
   return (
     <section className="bg-grid-lines px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36">
-      {copy.map(({ badge, image, title, subtitle, bullets, ctas }) => (
+      {copy.map(({ badge, image, title, subtitle, bullets }) => (
         <div
           key={title}
           className="grid grid-cols-1 lg:grid-cols-3 items-center justify-between mx-auto my-12 lg:my-20 gap-y-8 lg:gap-y-0 gap-x-0 lg:gap-x-8"
@@ -127,35 +91,6 @@ export const Users: React.FC = () => {
                 </motion.li>
               ))}
             </ul>
-
-            <div className="flex flex-col sm:flex-row gap-4 w-full">
-              {ctas.map(({ icon, text, primary }) => (
-                <button
-                  key={text}
-                  className={`glass-button flex justify-center flex-row gap-2 group items-center p-2 px-4 rounded-lg border transition-all duration-300 w-full sm:w-auto ${
-                    primary
-                      ? "bg-linear-to-r from-primary/80 to-[#FFB067]/80 text-white border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)]"
-                      : "border-primary/20 bg-[#1F1F1F] backdrop-blur-lg hover:border-primary/40"
-                  }`}
-                >
-                  <div
-                    className={`$${
-                      primary ? "text-foreground" : "text-orange-600"
-                    } w-6 h-6`}
-                  >
-                    {icon}
-                  </div>
-
-                  {text}
-
-                  <CaretRightIcon
-                    className={`$${
-                      primary ? "text-foreground" : "text-primary"
-                    } h-4 group-hover:text-orange-600 transition-all duration-300`}
-                  />
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       ))}

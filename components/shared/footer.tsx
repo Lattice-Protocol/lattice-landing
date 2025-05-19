@@ -10,10 +10,14 @@ export const Footer: React.FC = () => {
     content: React.ReactNode;
     href: string;
   }[] = [
-    { content: "About us", href: "/" },
-    { content: "Our customers", href: "/" },
-    { content: "Careers", href: "/" },
-    { content: "Contact us", href: "/" },
+    {
+      content: "Litepaper",
+      href: "/litepaper",
+    },
+    {
+      content: "Blogs",
+      href: "/blogs",
+    },
   ];
 
   const socialsCopy: {
