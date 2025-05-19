@@ -1,6 +1,7 @@
 import { blogsLoader } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 import { CaretRightIcon } from "@/public/icons";
+import { DEPLOYED_URL, PROPER_NAME } from "@/utils/constants";
 import { TOCItem } from "fumadocs-core/toc";
 import { ArrowLeft } from "lucide-react";
 import { Metadata, type NextPage } from "next";
@@ -15,10 +16,35 @@ export async function generateMetadata(props: {
 
   if (!page) notFound();
 
+  const publishedTime =
+    typeof page.data.date === "string"
+      ? page.data.date
+      : page.data.date?.toISOString();
+
   return {
     title: page.data.title,
-    description:
-      page.data.description ?? "The library for building documentation sites",
+    description: page.data.description ?? "Lattice AI Blogs",
+    openGraph: {
+      title: page.data.title,
+      description: page.data.description ?? "Lattice AI Blogs",
+      type: "article",
+      publishedTime: publishedTime,
+      authors: [page.data.author],
+      images: [
+        {
+          url: page.data.image || "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: page.data.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.data.title,
+      description: page.data.description ?? "Lattice AI Blogs",
+      images: [page.data.image || "/twitter-image.jpg"],
+    },
   };
 }
 
@@ -40,8 +66,51 @@ const Page: NextPage<{
   if (!page) notFound();
   const { body: Mdx, toc } = await page.data.load();
 
+  // Format the publication date
+  const formattedDate = new Date(
+    page.data.date ?? page.file.name
+  ).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  // Create JSON-LD schema for blog article
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: page.data.title,
+    description: page.data.description,
+    image: page.data.image
+      ? `${DEPLOYED_URL}${page.data.image}`
+      : `${DEPLOYED_URL}/og-image.jpg`,
+    author: {
+      "@type": "Person",
+      name: page.data.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: PROPER_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: `${DEPLOYED_URL}/logo.png`,
+      },
+    },
+    datePublished: page.data.date || new Date(page.file.name).toISOString(),
+    dateModified: page.data.date || new Date(page.file.name).toISOString(),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${DEPLOYED_URL}/blogs/${slug}`,
+    },
+  };
+
   return (
     <section className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 py-20 xl:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
       <div className="flex flex-col">
         <Link
           href="/blogs"
@@ -59,13 +128,7 @@ const Page: NextPage<{
             },
             {
               label: "Published on",
-              value: new Date(
-                page.data.date ?? page.file.name
-              ).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }),
+              value: formattedDate,
             },
           ].map((item) => (
             <div

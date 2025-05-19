@@ -1,6 +1,7 @@
 "use client";
 
 import { FullLogo } from ".";
+import { GITHUB_URL, TWITTER_URL } from "@/utils/constants";
 import { RiTwitterLine, RiDiscordLine, RiGithubLine } from "@remixicon/react";
 import Link from "next/link";
 
@@ -21,15 +22,11 @@ export const Footer: React.FC = () => {
   }[] = [
     {
       icon: <RiTwitterLine />,
-      href: "https://x.com/0xLattice",
-    },
-    {
-      icon: <RiDiscordLine />,
-      href: "https://discord.gg/lattice",
+      href: TWITTER_URL,
     },
     {
       icon: <RiGithubLine />,
-      href: "https://github.com/lattice-ai",
+      href: GITHUB_URL,
     },
   ];
 

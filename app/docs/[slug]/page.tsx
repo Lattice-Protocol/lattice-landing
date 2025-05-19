@@ -1,5 +1,6 @@
 import { docsLoader } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
+import { DEPLOYED_URL, PROPER_NAME } from "@/utils/constants";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import {
   DocsPage,
@@ -20,7 +21,7 @@ export async function generateMetadata(props: {
 
   return {
     title: page.data.title,
-    description: page.data.description ?? "Lattice AI Blogs",
+    description: page.data.description ?? "Lattice AI Documentation",
   };
 }
 
@@ -42,19 +43,61 @@ const Page: NextPage<{
 
   const MDXContent = page.data.body;
 
+  // Create JSON-LD for documentation page
+  const docPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: page.data.title,
+    description: page.data.description,
+    author: {
+      "@type": "Organization",
+      name: PROPER_NAME,
+      url: DEPLOYED_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: PROPER_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: `${DEPLOYED_URL}/logo.png`,
+      },
+    },
+    url: `${DEPLOYED_URL}/docs/${slug}`,
+    inLanguage: "en-US",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${DEPLOYED_URL}/docs/${slug}`,
+    },
+    about: {
+      "@type": "SoftwareApplication",
+      name: PROPER_NAME,
+    },
+    articleSection: "Technical Documentation",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Developers",
+    },
+  };
+
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
-        <MDXContent
-          components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(docsLoader, page),
-          })}
-        />
-      </DocsBody>
-    </DocsPage>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(docPageJsonLd) }}
+      />
+      <DocsPage toc={page.data.toc} full={page.data.full}>
+        <DocsTitle>{page.data.title}</DocsTitle>
+        <DocsDescription>{page.data.description}</DocsDescription>
+        <DocsBody>
+          <MDXContent
+            components={getMDXComponents({
+              // this allows you to link to other pages with relative file paths
+              a: createRelativeLink(docsLoader, page),
+            })}
+          />
+        </DocsBody>
+      </DocsPage>
+    </>
   );
 };
 
