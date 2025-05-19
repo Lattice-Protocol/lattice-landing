@@ -34,10 +34,10 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#1A1310]/80 py-8 px-36 flex flex-col items-center">
-      <div className="flex items-center justify-between w-full gap-8">
-        <div className="flex flex-col gap-4 justify-between">
-          <div className="flex flex-col gap-4">
+    <footer className="bg-[#1A1310]/80 py-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 flex flex-col items-center">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between w-full gap-y-8 gap-x-8">
+        <div className="flex flex-col gap-4 justify-between items-center md:items-start">
+          <div className="flex flex-col gap-4 items-center md:items-start">
             <FullLogo />
 
             <div className="flex gap-2">
@@ -50,8 +50,8 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
-          <ul className="flex gap-4">
+        <div className="flex flex-col gap-4 items-center md:items-end">
+          <ul className="flex gap-4 flex-wrap justify-center md:justify-end">
             {sitemapCopy.map(({ content, href }) => (
               <li key={content?.toString()}>
                 <Link
@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
             ))}
           </ul>
 
-          <p className="text-sm text-muted-foreground mt-full text-right">
+          <p className="text-sm text-muted-foreground mt-full text-center md:text-right">
             &copy; 2025 Lattice AI. All rights reserved.
           </p>
         </div>

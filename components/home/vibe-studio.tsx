@@ -79,8 +79,8 @@ export const VibeStudio: React.FC = () => {
   ];
 
   return (
-    <section className="flex items-center gap-y-12 px-36 pb-20">
-      <div className="w-full ">
+    <section className="flex flex-col-reverse xl:flex-row items-center gap-y-12 gap-x-16 px-12 md:px-20 xl:px-36 pb-20">
+      <div className="w-full md:w-10/12 xl:w-full mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export const VibeStudio: React.FC = () => {
         </motion.button>
       </div>
 
-      <Terminal className="bg-background mx-auto border-primary/20 w-fit">
+      <Terminal className="mr-auto scale-[60%] md:scale-none bg-background border-primary/20 md:translate-x-0 -translate-x-1/5">
         <TerminalText
           delay={500}
           className="text-primary whitespace-pre font-mono text-xs"

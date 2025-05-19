@@ -4,12 +4,12 @@ import Link from "next/link";
 
 export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
   return (
-    <section className="px-36 mb-20">
+    <section className="px-12 md:px-20 xl:px-36 mb-20">
       <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-8">
         Latest Blogs
       </h2>
 
-      <main className="flex gap-8">
+      <main className="flex flex-wrap gap-8">
         {blogs.map(({ data, url }) => (
           <article
             key={data.title}

@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export const Waitlist: React.FC = () => {
   return (
-    <section className="min-h-[400px] md:min-h-[600px] w-full px-36 mb-20">
-      <div className="flex flex-col md:flex-row w-full items-center">
-        <figure className="relative w-[36rem] h-[36rem]">
+    <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-8 md:py-16 mb-10 md:mb-20">
+      <div className="flex flex-col lg:flex-row w-full items-center justify-center gap-y-12 lg:gap-x-16">
+        <figure className="relative w-full max-w-md lg:max-w-xl aspect-square">
           <Image
             src="/images/home/halo.png"
             alt="Lattice AI"
@@ -14,25 +14,27 @@ export const Waitlist: React.FC = () => {
           />
         </figure>
 
-        <div className="flex flex-col gap-6 mx-auto p-4 md:p-0">
-          <Badge variant="default">Early Access</Badge>
+        <div className="flex flex-col gap-4 md:gap-6 w-full max-w-md mx-auto p-4 md:p-0 text-center lg:text-left">
+          <Badge variant="default" className="mx-auto lg:mx-0">
+            Early Access
+          </Badge>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             Join the Waitlist
           </h2>
 
-          <p className="text-foreground/80 max-w-[300px] md:max-w-md">
+          <p className="text-foreground/80 text-base sm:text-lg">
             Be among the first to experience decentralized AI. Get early access
             to node deployment and platform features.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-2">
+          <div className="flex flex-col sm:flex-row gap-3 mt-2 md:mt-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full sm:w-auto flex-1 px-4 py-2 bg-[#1A1310]/70 border border-primary/20 rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-hidden focus:border-primary/40"
+              className="w-full sm:flex-1 px-4 py-3 bg-[#1A1310]/70 border border-primary/20 rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:border-primary/40"
             />
-            <button className="w-full sm:w-auto glass-button bg-linear-to-r from-primary/80 to-[#FFB067]/80 px-6 py-2 rounded-lg border border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)] transition-all duration-300 text-white">
+            <button className="w-full sm:w-auto bg-linear-to-r from-primary/80 to-[#FFB067]/80 px-6 py-3 rounded-lg border border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)] transition-all duration-300 text-white">
               Join
             </button>
           </div>

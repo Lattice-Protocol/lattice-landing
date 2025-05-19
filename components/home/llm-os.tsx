@@ -20,8 +20,8 @@ export const LLMOS: React.FC = () => {
   ];
 
   return (
-    <section className="flex justify-between px-36 items-center py-20">
-      <div className="grid grid-cols-4 gap-x-4">
+    <section className="flex flex-col xl:flex-row justify-between px-12 md:px-20 xl:px-36 gap-y-12 gap-x-16 items-center py-20">
+      <div className="grid grid-cols-4 gap-x-4 min-w-fit">
         {iconSlugs.map((slug, i) => (
           <motion.div
             key={slug}
@@ -46,7 +46,7 @@ export const LLMOS: React.FC = () => {
         ))}
       </div>
 
-      <div className="">
+      <div className="w-full md:w-10/12 xl:w-full mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

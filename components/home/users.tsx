@@ -79,31 +79,35 @@ export const Users: React.FC = () => {
   ];
 
   return (
-    <section className="bg-grid-lines px-36">
+    <section className="bg-grid-lines px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36">
       {copy.map(({ badge, image, title, subtitle, bullets, ctas }) => (
         <div
           key={title}
-          className="grid grid-cols-3 items-center justify-between mx-auto my-20"
+          className="grid grid-cols-1 lg:grid-cols-3 items-center justify-between mx-auto my-12 lg:my-20 gap-y-8 lg:gap-y-0 gap-x-0 lg:gap-x-8"
         >
-          <figure className="w-full flex items-center justify-center">
+          <figure className="w-full flex items-center justify-center mb-4 lg:mb-0">
             <Image
               src={image}
               alt={title}
-              height={360}
-              width={360}
-              className="rounded-xl mr-auto"
+              height={320}
+              width={320}
+              className="rounded-xl mx-auto"
               priority
             />
           </figure>
 
-          <div className="w-full col-span-2 h-full justify-start flex flex-col items-start gap-8">
+          <div className="w-full col-span-2 h-full justify-start flex flex-col items-start gap-6 lg:gap-8">
             {badge && <Badge variant="default">{badge}</Badge>}
 
-            <h2 className="text-2xl md:text-4xl font-bold">{title}</h2>
+            <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold">
+              {title}
+            </h2>
 
-            <p className="text-lg md:text-xl text-primary">{subtitle}</p>
+            <p className="text-base sm:text-lg lg:text-xl text-primary">
+              {subtitle}
+            </p>
 
-            <ul className="space-y-3 md:space-y-4 my-4">
+            <ul className="space-y-3 sm:space-y-4 my-2 sm:my-4">
               {bullets.map((bullet, i) => (
                 <motion.li
                   key={bullet}
@@ -113,29 +117,29 @@ export const Users: React.FC = () => {
                   className="flex items-center justify-start gap-3"
                 >
                   <ArrowRightIcon
-                    className="h-5 w-5 md:h-6 md:w-6 shrink-0"
+                    className="h-5 w-5 sm:h-6 sm:w-6 shrink-0"
                     fill="#E5C4A9"
                   />
 
-                  <span className="text-foreground/80 font-semibold text-lg md:text-xl">
+                  <span className="text-foreground/80 font-semibold text-base sm:text-lg lg:text-xl">
                     {bullet}
                   </span>
                 </motion.li>
               ))}
             </ul>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
               {ctas.map(({ icon, text, primary }) => (
                 <button
                   key={text}
-                  className={`glass-button flex justify-center flex-row gap-2 group items-center p-2 px-4 rounded-lg border transition-all duration-300 ${
+                  className={`glass-button flex justify-center flex-row gap-2 group items-center p-2 px-4 rounded-lg border transition-all duration-300 w-full sm:w-auto ${
                     primary
                       ? "bg-linear-to-r from-primary/80 to-[#FFB067]/80 text-white border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)]"
                       : "border-primary/20 bg-[#1F1F1F] backdrop-blur-lg hover:border-primary/40"
                   }`}
                 >
                   <div
-                    className={`${
+                    className={`$${
                       primary ? "text-foreground" : "text-orange-600"
                     } w-6 h-6`}
                   >
@@ -145,7 +149,7 @@ export const Users: React.FC = () => {
                   {text}
 
                   <CaretRightIcon
-                    className={`${
+                    className={`$${
                       primary ? "text-foreground" : "text-primary"
                     } h-4 group-hover:text-orange-600 transition-all duration-300`}
                   />
