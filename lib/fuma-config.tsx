@@ -14,11 +14,11 @@ const commonNavLinks: BaseLayoutProps["links"] = [
   //   url: "/community",
   //   icon: <RadioIcon />,
   // },
-  {
-    text: "Documentation",
-    url: "/docs",
-    icon: <BookOpenIcon className="w-4 h-4" />,
-  },
+  // {
+  //   text: "Documentation",
+  //   url: "/docs",
+  //   icon: <BookOpenIcon className="w-4 h-4" />,
+  // },
   // {
   //   text: "Power Nodes",
   //   url: "/power-nodes",
