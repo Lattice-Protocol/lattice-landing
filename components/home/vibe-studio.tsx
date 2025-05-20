@@ -79,13 +79,13 @@ export const VibeStudio: React.FC = () => {
   ];
 
   return (
-    <section className="flex flex-col-reverse xl:flex-row items-center gap-y-12 gap-x-16 px-12 md:px-20 xl:px-36 pb-20">
-      <div className="w-full md:w-10/12 xl:w-full mx-auto">
+    <section className="flex flex-col-reverse items-center gap-x-16 gap-y-12 px-12 pb-20 md:px-20 xl:flex-row xl:px-36">
+      <div className="mx-auto w-full md:w-10/12 xl:w-full">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-[1.75rem] sm:text-[2rem] md:text-[3.5rem] font-bold text-[#CE8E54] mb-4 lg:mb-6"
+          className="mb-4 text-[1.75rem] font-bold text-[#CE8E54] sm:text-[2rem] md:text-[3.5rem] lg:mb-6"
         >
           Lattice Vibe Studio
         </motion.h2>
@@ -94,7 +94,7 @@ export const VibeStudio: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-foreground/80 flex flex-col item gap-3 text-[1rem] sm:text-[1.1rem] md:text-[1.25rem] font-mono font-semibold mb-6 lg:mb-8"
+          className="text-foreground/80 item mb-6 flex flex-col gap-3 font-mono text-[1rem] font-semibold sm:text-[1.1rem] md:text-[1.25rem] lg:mb-8"
         >
           <p>Vibe code AI functionality</p>
 
@@ -111,16 +111,16 @@ export const VibeStudio: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className=" transition-all duration-300 text-[#EA580B]/60 font-mono hover:cursor-pointer hover:underline hover:underline-offset-2 uppercase"
+          className="font-mono text-[#EA580B]/60 uppercase transition-all duration-300 hover:cursor-pointer hover:underline hover:underline-offset-2"
         >
           <span className="">Build</span>
         </motion.button>
       </div>
 
-      <Terminal className="mr-auto scale-50 sm:scale-75 md:scale-none bg-background border-primary/20 -translate-x-48 sm:-translate-x-20 md:translate-x-0">
+      <Terminal className="bg-background border-primary/20 mr-auto -translate-x-48 scale-50 sm:-translate-x-20 sm:scale-75 md:translate-x-0 md:scale-none">
         <TerminalText
           delay={500}
-          className="text-primary whitespace-pre font-mono text-xs"
+          className="text-primary font-mono text-xs whitespace-pre"
         >
           {`
          _             _                 _          _          _           _             _      

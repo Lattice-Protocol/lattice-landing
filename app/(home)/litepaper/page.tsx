@@ -1,7 +1,7 @@
 import { ArticlePage } from "@/components/shared/article-page";
 import { litepaperLoader } from "@/lib/source";
 import { DEPLOYED_URL, PROPER_NAME } from "@/utils/constants";
-import { Metadata, type NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {

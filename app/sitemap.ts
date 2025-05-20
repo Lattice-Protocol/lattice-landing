@@ -1,6 +1,6 @@
 import { blogsLoader } from "@/lib/source";
 import { DEPLOYED_URL } from "@/utils/constants";
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 const sitemap = (): MetadataRoute.Sitemap => {
   const blogs = [...blogsLoader.getPages()].map((page) => ({

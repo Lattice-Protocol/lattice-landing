@@ -8,7 +8,7 @@ import {
   DocsDescription,
   DocsTitle,
 } from "fumadocs-ui/page";
-import { Metadata, type NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: {

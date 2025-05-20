@@ -11,7 +11,7 @@ export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
   // const [bannerSrc, setBannerSrc] = useState<string>(defaultBannerSrc);
 
   return (
-    <section className="p-8 w-9/12 mx-auto">
+    <section className="mx-auto w-9/12 p-8">
       <div className="relative h-96">
         <Image
           src={defaultBannerSrc}
@@ -21,7 +21,7 @@ export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
           className="object-cover object-center"
         />
 
-        <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-foreground">
+        <h1 className="text-foreground absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold">
           Lattice AI Blog
         </h1>
       </div>
@@ -31,7 +31,7 @@ export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
           <Link
             key={blog.data.title}
             href={blog.url}
-            className="p-4 border border-primary/20"
+            className="border-primary/20 border p-4"
             // onMouseEnter={() => {
             //   setBannerSrc(blog.data.image);
             // }}
@@ -39,18 +39,18 @@ export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
             //   setBannerSrc(defaultBannerSrc);
             // }}
           >
-            <h3 className="font-bold text-foreground">{blog.data.title}</h3>
+            <h3 className="text-foreground font-bold">{blog.data.title}</h3>
 
-            <p className="text-foreground/80 text-sm mt-2">
+            <p className="text-foreground/80 mt-2 text-sm">
               {blog.data.description}
             </p>
 
             <div className="flex items-center justify-between">
-              <p className="text-foreground/80 text-sm mt-2">
+              <p className="text-foreground/80 mt-2 text-sm">
                 {blog.data.author}
               </p>
 
-              <p className="text-foreground/80 text-sm mt-2">
+              <p className="text-foreground/80 mt-2 text-sm">
                 {blog.data.date}
               </p>
             </div>

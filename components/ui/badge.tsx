@@ -36,7 +36,7 @@ function Badge({
       {...props}
     >
       {pulse && (
-        <span className="w-2 h-2 rounded-full bg-primary/80 animate-pulse"></span>
+        <span className="bg-primary/80 h-2 w-2 animate-pulse rounded-full"></span>
       )}
 
       {children}

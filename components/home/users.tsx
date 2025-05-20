@@ -47,31 +47,31 @@ export const Users: React.FC = () => {
       {copy.map(({ badge, image, title, subtitle, bullets }) => (
         <div
           key={title}
-          className="grid grid-cols-1 lg:grid-cols-3 items-center justify-between mx-auto my-12 lg:my-20 gap-y-8 lg:gap-y-0 gap-x-0 lg:gap-x-8"
+          className="mx-auto my-12 grid grid-cols-1 items-center justify-between gap-x-0 gap-y-8 lg:my-20 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0"
         >
-          <figure className="w-full flex items-center justify-center mb-4 lg:mb-0">
+          <figure className="mb-4 flex w-full items-center justify-center lg:mb-0">
             <Image
               src={image}
               alt={title}
               height={320}
               width={320}
-              className="rounded-xl mx-auto"
+              className="mx-auto rounded-xl"
               priority
             />
           </figure>
 
-          <div className="w-full col-span-2 h-full justify-start flex flex-col items-start gap-6 lg:gap-8">
+          <div className="col-span-2 flex h-full w-full flex-col items-start justify-start gap-6 lg:gap-8">
             {badge && <Badge variant="default">{badge}</Badge>}
 
-            <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold">
+            <h2 className="text-xl font-bold sm:text-2xl lg:text-4xl">
               {title}
             </h2>
 
-            <p className="text-base sm:text-lg lg:text-xl text-primary">
+            <p className="text-primary text-base sm:text-lg lg:text-xl">
               {subtitle}
             </p>
 
-            <ul className="space-y-3 sm:space-y-4 my-2 sm:my-4">
+            <ul className="my-2 space-y-3 sm:my-4 sm:space-y-4">
               {bullets.map((bullet, i) => (
                 <motion.li
                   key={bullet}
@@ -81,11 +81,11 @@ export const Users: React.FC = () => {
                   className="flex items-center justify-start gap-3"
                 >
                   <ArrowRightIcon
-                    className="h-5 w-5 sm:h-6 sm:w-6 shrink-0"
+                    className="h-5 w-5 shrink-0 sm:h-6 sm:w-6"
                     fill="#E5C4A9"
                   />
 
-                  <span className="text-foreground/80 font-semibold text-base sm:text-lg lg:text-xl">
+                  <span className="text-foreground/80 text-base font-semibold sm:text-lg lg:text-xl">
                     {bullet}
                   </span>
                 </motion.li>

@@ -10,47 +10,47 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   toc,
 }) => {
   return (
-    <section className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 py-20 xl:py-28 w-10/12 mx-auto">
+    <section className="mx-auto w-10/12 px-4 py-20 sm:px-6 md:px-12 lg:px-20 xl:px-28 xl:py-28">
       <div className="flex flex-col">
         {metadata?.length ? (
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 md:mt-8">
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:gap-8 md:mt-8">
             {metadata.map(({ title, content }) => (
               <div
                 key={title}
-                className="flex flex-row sm:flex-col items-start sm:items-center gap-2 sm:gap-1 justify-start"
+                className="flex flex-row items-start justify-start gap-2 sm:flex-col sm:items-center sm:gap-1"
               >
-                <p className="text-sm text-muted-foreground">{title}</p>
-                <p className="font-medium text-foreground/60">{content}</p>
+                <p className="text-muted-foreground text-sm">{title}</p>
+                <p className="text-foreground/60 font-medium">{content}</p>
               </div>
             ))}
           </div>
         ) : null}
 
-        <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-6 md:mt-8">
+        <h1 className="text-foreground mt-6 mb-4 text-3xl font-bold sm:text-4xl md:mt-8 md:text-5xl">
           {data.title}
         </h1>
 
         {data.description && (
-          <p className="text-base sm:text-lg leading-relaxed text-foreground/80 mt-4">
+          <p className="text-foreground/80 mt-4 text-base leading-relaxed sm:text-lg">
             {data.description}
           </p>
         )}
       </div>
 
-      <div className="w-full h-0 border-t border-primary/20 my-8 md:my-12" />
+      <div className="border-primary/20 my-8 h-0 w-full border-t md:my-12" />
 
       <article className="flex flex-col lg:flex-row lg:gap-12">
-        <div className="lg:hidden mt-8 mb-4 border border-primary/50 rounded-md sticky top-16 bg-background">
+        <div className="border-primary/50 bg-background sticky top-16 mt-8 mb-4 rounded-md border lg:hidden">
           <details className="group">
-            <summary className="flex justify-between items-center cursor-pointer p-4">
+            <summary className="flex cursor-pointer items-center justify-between p-4">
               <h3 className="font-semibold text-white">Table of Contents</h3>
 
-              <span className="w-5 h-5 transition-transform rotate-90 group-open:rotate-0 flex">
+              <span className="flex h-5 w-5 rotate-90 transition-transform group-open:rotate-0">
                 <CaretRightIcon />
               </span>
             </summary>
 
-            <ul className="flex flex-col min-h-1 overflow-y-auto h-64 p-4 pt-0">
+            <ul className="flex h-64 min-h-1 flex-col overflow-y-auto p-4 pt-0">
               {toc.map(({ depth, title, url }) =>
                 depth > 3 || depth === 1 ? null : (
                   <TOCItem
@@ -59,8 +59,8 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                     className={`${
                       depth === 2
                         ? "text-foreground/60 mt-4"
-                        : "text-muted-foreground pl-4 mt-2"
-                    } first:mt-0 last:mb-0 text-sm hover:text-foreground transition-colors duration-200`}
+                        : "text-muted-foreground mt-2 pl-4"
+                    } hover:text-foreground text-sm transition-colors duration-200 first:mt-0 last:mb-0`}
                   >
                     {title}
                   </TOCItem>
@@ -70,13 +70,13 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
           </details>
         </div>
 
-        <div className="prose prose-invert min-w-0 flex-1 max-w-full prose-img:max-w-full prose-img:rounded-md">
+        <div className="prose prose-invert prose-img:max-w-full prose-img:rounded-md max-w-full min-w-0 flex-1">
           <Mdx components={getMDXComponents()} />
         </div>
 
-        <aside className="hidden lg:flex sticky flex-col top-20 w-72 xl:w-96 border border-primary/50 h-[36rem]">
-          <h3 className="font-semibold text-white p-4">Table of Contents</h3>
-          <ul className="flex flex-col min-h-1 overflow-y-auto p-4 pt-0">
+        <aside className="border-primary/50 sticky top-20 hidden h-[36rem] w-72 flex-col border lg:flex xl:w-96">
+          <h3 className="p-4 font-semibold text-white">Table of Contents</h3>
+          <ul className="flex min-h-1 flex-col overflow-y-auto p-4 pt-0">
             {toc.map(({ depth, title, url }) =>
               depth > 3 || depth === 1 ? null : (
                 <TOCItem
@@ -85,8 +85,8 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                   className={`${
                     depth === 2
                       ? "text-foreground/60 mt-4"
-                      : "text-muted-foreground pl-4 mt-2"
-                  } first:mt-0 last:mb-0 text-sm hover:text-foreground transition-colors duration-200`}
+                      : "text-muted-foreground mt-2 pl-4"
+                  } hover:text-foreground text-sm transition-colors duration-200 first:mt-0 last:mb-0`}
                 >
                   {title}
                 </TOCItem>

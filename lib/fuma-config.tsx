@@ -1,7 +1,7 @@
 import { FullLogo, PageNavbar } from "@/components/shared";
-import { BulbIcon, ChatIcon, RadioIcon, ScrollIcon } from "@/public/icons";
+import { ScrollIcon } from "@/public/icons";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { BookOpenIcon, NewspaperIcon } from "lucide-react";
+import { NewspaperIcon } from "lucide-react";
 
 const commonNavLinks: BaseLayoutProps["links"] = [
   {
@@ -27,7 +27,7 @@ const commonNavLinks: BaseLayoutProps["links"] = [
   {
     text: "Blogs",
     url: "/blogs",
-    icon: <NewspaperIcon className="w-4 h-4" />,
+    icon: <NewspaperIcon className="h-4 w-4" />,
   },
   // {
   //   text: "Chat",

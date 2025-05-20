@@ -9,7 +9,7 @@ import {
 } from "@/utils/constants";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { RootProvider } from "fumadocs-ui/provider";
-import { Metadata, NextPage } from "next";
+import type { Metadata, NextPage } from "next";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -77,7 +77,7 @@ const RootLayout: NextPage<{
 }> = ({ children }) => {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex min-h-screen flex-col">
         <RootProvider>
           <StructuredData />
           {children}

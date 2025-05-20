@@ -1,16 +1,17 @@
 "use client";
 
 import { FullLogo, PageNavItem } from ".";
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import type { PageNavbarProps } from "utils/types/shared.types";
 
+// import { useState } from "react";
+// import { Menu, X } from "lucide-react";
+
 export const PageNavbar: React.FC<PageNavbarProps> = ({ commonLinks = [] }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   return (
-    <nav className="fixed m-2 sm:m-4 left-0 top-0 z-50 flex text-sm items-center justify-between right-0">
+    <nav className="fixed top-0 right-0 left-0 z-50 m-2 flex items-center justify-between text-sm sm:m-4">
       <Link href="/">
         <figure className="flex items-center gap-2 bg-[#211b19] px-3 py-2">
           <FullLogo size={18} className="text-xs sm:text-sm" />
@@ -24,7 +25,7 @@ export const PageNavbar: React.FC<PageNavbarProps> = ({ commonLinks = [] }) => {
         {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
       </button> */}
 
-      <ul className="flex items-center gap-4 lg:gap-6 px-3 py-2 bg-[#211b19]">
+      <ul className="flex items-center gap-4 bg-[#211b19] px-3 py-2 lg:gap-6">
         {commonLinks.map((link, index) => (
           <li key={index}>
             <PageNavItem item={link} />

@@ -5,11 +5,11 @@ export const Terminal: React.FC<TerminalProps> = ({ children, className }) => {
   return (
     <div
       className={cn(
-        "z-0 h-full text-xs md:text-base rounded-xl border border-border bg-background w-fit",
+        "border-border bg-background z-0 h-full w-fit rounded-xl border text-xs md:text-base",
         className
       )}
     >
-      <div className="gap-y-2 border-b border-border p-4 flex flex-row gap-x-2">
+      <div className="border-border flex flex-row gap-x-2 gap-y-2 border-b p-4">
         <span className="h-2 w-2 rounded-full bg-red-500" />
         <span className="h-2 w-2 rounded-full bg-yellow-500" />
         <span className="h-2 w-2 rounded-full bg-green-500" />

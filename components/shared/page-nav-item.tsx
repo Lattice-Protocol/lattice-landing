@@ -65,7 +65,7 @@ export const PageNavItem: React.FC<PageNavItemProps> = ({ item }) => {
 
     case "menu":
       return (
-        <div className="relative group">
+        <div className="group relative">
           <button
             className={`${COMMON_STYLES.container} ${COMMON_STYLES.text}`}
           >

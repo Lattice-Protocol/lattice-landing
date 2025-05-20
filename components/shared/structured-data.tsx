@@ -8,7 +8,12 @@ import {
   DEPLOYED_URL,
 } from "@/utils/constants";
 import { usePathname } from "next/navigation";
-import { WithContext, Organization, WebSite, BreadcrumbList } from "schema-dts";
+import type {
+  WithContext,
+  Organization,
+  WebSite,
+  BreadcrumbList,
+} from "schema-dts";
 
 export const StructuredData: React.FC = () => {
   const pathname = usePathname();

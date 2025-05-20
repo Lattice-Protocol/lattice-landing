@@ -20,15 +20,12 @@ export const LLMOS: React.FC = () => {
   ];
 
   return (
-    <section className="flex flex-col xl:flex-row justify-between px-12 md:px-20 xl:px-36 gap-y-12 gap-x-16 items-center py-20">
-      <div className="grid grid-cols-4 gap-x-4 min-w-fit">
+    <section className="flex flex-col items-center justify-between gap-x-16 gap-y-12 px-12 py-20 md:px-20 xl:flex-row xl:px-36">
+      <div className="grid min-w-fit grid-cols-4 gap-x-4">
         {iconSlugs.map((slug, i) => (
           <motion.div
             key={slug}
-            className="w-[64px] h-[64px] md:w-[100px] md:h-[100px] rounded-[20px] flex items-center justify-center 
-                       bg-white backdrop-blur-xs 
-                       border border-white/20 hover:border-white/40 
-                       transition-all duration-500 hover:scale-105 mb-6"
+            className="mb-6 flex h-[64px] w-[64px] items-center justify-center rounded-[20px] border border-white/20 bg-white backdrop-blur-xs transition-all duration-500 hover:scale-105 hover:border-white/40 md:h-[100px] md:w-[100px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: i * 0.04 }}
@@ -46,12 +43,12 @@ export const LLMOS: React.FC = () => {
         ))}
       </div>
 
-      <div className="w-full md:w-10/12 xl:w-full mx-auto">
+      <div className="mx-auto w-full md:w-10/12 xl:w-full">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-[1.75rem] sm:text-[2rem] md:text-[3.5rem] font-bold text-[#CE8E54] mb-4 lg:mb-6"
+          className="mb-4 text-[1.75rem] font-bold text-[#CE8E54] sm:text-[2rem] md:text-[3.5rem] lg:mb-6"
         >
           LLM OS Ecosystem
         </motion.h2>
@@ -60,7 +57,7 @@ export const LLMOS: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[#E5C4A9]/80 flex flex-col gap-3 text-[1rem] sm:text-[1.1rem] md:text-[1.25rem] font-mono font-semibold mb-6 lg:mb-8"
+          className="mb-6 flex flex-col gap-3 font-mono text-[1rem] font-semibold text-[#E5C4A9]/80 sm:text-[1.1rem] md:text-[1.25rem] lg:mb-8"
         >
           <p className="h-fit">One Click add MCP, A2A, and plugins.</p>
           <p className="h-fit">

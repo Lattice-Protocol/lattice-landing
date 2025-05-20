@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export const Waitlist: React.FC = () => {
   return (
-    <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-8 md:py-16 mb-10 md:mb-20">
-      <div className="flex flex-col lg:flex-row w-full items-center justify-center gap-y-12 lg:gap-x-16">
-        <figure className="relative w-full max-w-md lg:max-w-xl aspect-square">
+    <section className="mb-10 w-full px-4 py-8 sm:px-8 md:mb-20 md:px-16 md:py-16 lg:px-24 xl:px-36">
+      <div className="flex w-full flex-col items-center justify-center gap-y-12 lg:flex-row lg:gap-x-16">
+        <figure className="relative aspect-square w-full max-w-md lg:max-w-xl">
           <Image
             src="/images/home/halo.png"
             alt="Lattice AI"
@@ -14,12 +14,12 @@ export const Waitlist: React.FC = () => {
           />
         </figure>
 
-        <div className="flex flex-col gap-4 md:gap-6 w-full max-w-md mx-auto p-4 md:p-0 text-center lg:text-left">
+        <div className="mx-auto flex w-full max-w-md flex-col gap-4 p-4 text-center md:gap-6 md:p-0 lg:text-left">
           <Badge variant="default" className="mx-auto lg:mx-0">
             Early Access
           </Badge>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-foreground text-2xl font-bold sm:text-3xl md:text-4xl">
             Join the Waitlist
           </h2>
 
@@ -28,13 +28,13 @@ export const Waitlist: React.FC = () => {
             to node deployment and platform features.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 mt-2 md:mt-4">
+          <div className="mt-2 flex flex-col gap-3 sm:flex-row md:mt-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full sm:flex-1 px-4 py-3 bg-[#1A1310]/70 border border-primary/20 rounded-lg text-foreground placeholder:text-foreground/50 focus:outline-none focus:border-primary/40"
+              className="border-primary/20 text-foreground placeholder:text-foreground/50 focus:border-primary/40 w-full rounded-lg border bg-[#1A1310]/70 px-4 py-3 focus:outline-none sm:flex-1"
             />
-            <button className="w-full sm:w-auto bg-linear-to-r from-primary/80 to-[#FFB067]/80 px-6 py-3 rounded-lg border border-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)] transition-all duration-300 text-white">
+            <button className="from-primary/80 border-primary/20 hover:border-primary/40 w-full rounded-lg border bg-linear-to-r to-[#FFB067]/80 px-6 py-3 text-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(180,97,25,0.5)] sm:w-auto">
               Join
             </button>
           </div>

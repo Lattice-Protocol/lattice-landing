@@ -30,8 +30,8 @@ export const Community: React.FC = () => {
   ];
 
   return (
-    <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-12 md:py-20 lg:py-24 mx-auto">
-      <div className="text-2xl sm:text-3xl font-mono flex flex-col gap-2 justify-center text-center">
+    <section className="mx-auto px-4 py-12 sm:px-8 md:px-16 md:py-20 lg:px-24 lg:py-24 xl:px-36">
+      <div className="flex flex-col justify-center gap-2 text-center font-mono text-2xl sm:text-3xl">
         <h5 className="text-orange-500/80">
           People's AI. Co
           <span className="text-xs sm:text-sm">[munnity]</span> Owned.
@@ -39,17 +39,17 @@ export const Community: React.FC = () => {
         <h5 className="text-lg sm:text-2xl">Earn from LLM model usage</h5>
       </div>
 
-      <div className="flex flex-col lg:flex-row mt-12 md:mt-24 gap-8 lg:gap-0">
+      <div className="mt-12 flex flex-col gap-8 md:mt-24 lg:flex-row lg:gap-0">
         {copy.map(({ icon, title, description }, idx) => (
           <div
             key={title}
-            className={`flex flex-col px-4 sm:px-8 xl:px-20 py-8 lg:py-0 ${idx !== copy.length - 1 ? "lg:border-r lg:border-secondary/20" : ""}`}
+            className={`flex flex-col px-4 py-8 sm:px-8 lg:py-0 xl:px-20 ${idx !== copy.length - 1 ? "lg:border-secondary/20 lg:border-r" : ""}`}
           >
             <div>
               <figure className="mb-6">{icon}</figure>
               <div className="flex flex-col gap-2">
-                <h5 className="text-lg sm:text-xl font-bold">{title}</h5>
-                <p className="text-sm sm:text-base text-foreground/80">
+                <h5 className="text-lg font-bold sm:text-xl">{title}</h5>
+                <p className="text-foreground/80 text-sm sm:text-base">
                   {description}
                 </p>
               </div>

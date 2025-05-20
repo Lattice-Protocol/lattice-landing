@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
   return (
-    <section className="px-12 md:px-20 xl:px-36 mb-20">
-      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-8">
+    <section className="mb-20 px-12 md:px-20 xl:px-36">
+      <h2 className="text-foreground mb-4 text-2xl font-bold md:mb-8 md:text-3xl">
         Latest Blogs
       </h2>
 
@@ -13,9 +13,9 @@ export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
         {blogs.map(({ data, url }) => (
           <article
             key={data.title}
-            className="relative flex flex-col w-96 items-center bg-[#1A1310]/70 rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-300"
+            className="border-primary/20 hover:border-primary/40 relative flex w-96 flex-col items-center overflow-hidden rounded-lg border bg-[#1A1310]/70 transition-all duration-300"
           >
-            <figure className="relative w-full h-80">
+            <figure className="relative h-80 w-full">
               <Image
                 src={data.image}
                 alt="Lattice AI"
@@ -25,7 +25,7 @@ export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
             </figure>
 
             <div className="p-4 md:p-6">
-              <h3 className="text-xl font-bold text-foreground mb-3">
+              <h3 className="text-foreground mb-3 text-xl font-bold">
                 {data.title}
               </h3>
 
@@ -35,7 +35,7 @@ export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
 
               <Link
                 href={url}
-                className="text-primary hover:text-[#FFB067] transition-colors"
+                className="text-primary transition-colors hover:text-[#FFB067]"
               >
                 Read More →
               </Link>
