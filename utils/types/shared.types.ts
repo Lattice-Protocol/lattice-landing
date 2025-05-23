@@ -66,3 +66,69 @@ export interface ArticlePageProps {
   Mdx: FC<MDXProps>;
   toc: TableOfContents;
 }
+
+export interface FormFieldValidation {
+  validationtype?: "string" | "otp";
+  validations?: {
+    type: string;
+    params?: (string | number | RegExp | unknown)[];
+  }[];
+}
+
+interface CommonFormFieldProps
+  extends React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLInputElement>,
+      HTMLInputElement
+    >,
+    FormFieldValidation {
+  name: string;
+  id: string;
+  type:
+    | "text"
+    | "textarea"
+    | "date"
+    | "select"
+    | "email"
+    | "number"
+    | "password"
+    | "checkbox"
+    | "radio"
+    | "digit";
+  disabled?: boolean;
+  placeholder?: string;
+  label?: React.ReactNode;
+  // label?: React.ReactNode;
+}
+
+export interface FormInputType extends CommonFormFieldProps {
+  type: "text" | "date" | "email" | "password" | "number" | "digit";
+}
+export interface FormTextareaType extends CommonFormFieldProps {
+  type: "textarea";
+}
+
+export interface FormSelectType extends CommonFormFieldProps {
+  type: "select";
+  placeholder?: string;
+  choiceClassName?: string;
+  choices: {
+    value: string;
+    text: string;
+  }[];
+}
+
+export interface FormRadioType extends CommonFormFieldProps {
+  type: "radio" | "checkbox";
+  choiceClassName?: string;
+  choicesClassName?: string;
+  choices: {
+    value: string;
+    text: string;
+  }[];
+}
+
+export type FormFieldProps =
+  | FormInputType
+  | FormTextareaType
+  | FormSelectType
+  | FormRadioType;
