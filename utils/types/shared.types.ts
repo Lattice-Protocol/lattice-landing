@@ -65,6 +65,7 @@ export interface ArticlePageProps {
   data: PageData;
   Mdx: FC<MDXProps>;
   toc: TableOfContents;
+  type: "litepaper" | "blog";
 }
 
 export interface FormFieldValidation {

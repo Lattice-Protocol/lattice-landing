@@ -8,6 +8,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   metadata,
   Mdx,
   toc,
+  type,
 }) => {
   return (
     <section className="mx-auto w-10/12 px-4 py-20 sm:px-6 md:px-12 lg:px-20 xl:px-28 xl:py-28">
@@ -40,7 +41,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
       <div className="border-primary/20 my-8 h-0 w-full border-t md:my-12" />
 
       <article className="flex flex-col lg:flex-row lg:gap-12">
-        <div className="border-primary/50 bg-background sticky top-16 mt-8 mb-4 rounded-md border lg:hidden">
+       { type ==="litepaper"   && <div className="border-primary/50 bg-background sticky top-16 mt-8 mb-4 rounded-md border lg:hidden">
           <details className="group">
             <summary className="flex cursor-pointer items-center justify-between p-4">
               <h3 className="font-semibold text-white">Table of Contents</h3>
@@ -68,32 +69,33 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
               )}
             </ul>
           </details>
-        </div>
+        </div> }
 
         <div className="prose prose-invert prose-img:max-w-full prose-img:rounded-md max-w-full min-w-0 flex-1">
           <Mdx components={getMDXComponents()} />
         </div>
-
-        <aside className="border-primary/50 sticky top-20 hidden h-[36rem] w-72 flex-col border lg:flex xl:w-96">
-          <h3 className="p-4 font-semibold text-white">Table of Contents</h3>
-          <ul className="flex min-h-1 flex-col overflow-y-auto p-4 pt-0">
-            {toc.map(({ depth, title, url }) =>
-              depth > 3 || depth === 1 ? null : (
-                <TOCItem
-                  key={url}
-                  href={url}
-                  className={`${
-                    depth === 2
-                      ? "text-foreground/60 mt-4"
-                      : "text-muted-foreground mt-2 pl-4"
-                  } hover:text-foreground text-sm transition-colors duration-200 first:mt-0 last:mb-0`}
-                >
-                  {title}
-                </TOCItem>
-              )
-            )}
-          </ul>
-        </aside>
+        {type === "litepaper" && (
+          <aside className="border-primary/50 sticky top-20 hidden h-[36rem] w-72 flex-col border lg:flex xl:w-96">
+            <h3 className="p-4 font-semibold text-white">Table of Contents</h3>
+            <ul className="flex min-h-1 flex-col overflow-y-auto p-4 pt-0">
+              {toc.map(({ depth, title, url }) =>
+                depth > 3 || depth === 1 ? null : (
+                  <TOCItem
+                    key={url}
+                    href={url}
+                    className={`${
+                      depth === 2
+                        ? "text-foreground/60 mt-4"
+                        : "text-muted-foreground mt-2 pl-4"
+                    } hover:text-foreground text-sm transition-colors duration-200 first:mt-0 last:mb-0`}
+                  >
+                    {title}
+                  </TOCItem>
+                )
+              )}
+            </ul>
+          </aside>
+        )}
       </article>
     </section>
   );

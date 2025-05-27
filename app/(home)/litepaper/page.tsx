@@ -59,7 +59,7 @@ const Page: NextPage = async () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(litepaperJsonLd) }}
       />
 
-      <ArticlePage data={page.data} Mdx={Mdx} toc={toc} />
+      <ArticlePage data={page.data} Mdx={Mdx} toc={toc} type={"litepaper"} />
     </>
   );
 };

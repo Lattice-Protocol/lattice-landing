@@ -121,6 +121,7 @@ const Page: NextPage<{
         Mdx={Mdx}
         toc={toc}
         data={page.data}
+        type={"blog"}
       />
     </>
   );

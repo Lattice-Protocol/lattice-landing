@@ -6,7 +6,7 @@ import Link from "next/link";
 // import { useState } from "react";
 
 export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
-  const defaultBannerSrc = "/images/home/hero-bg.png";
+  const defaultBannerSrc = "/images/blogs/milkyway.jpg";
 
   // const [bannerSrc, setBannerSrc] = useState<string>(defaultBannerSrc);
 
@@ -21,8 +21,8 @@ export const BlogsHero: React.FC<BlogsHeroProps> = ({ blogs }) => {
           className="object-cover object-center"
         />
 
-        <h1 className="text-foreground absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold">
-          Lattice AI Blog
+        <h1 className="text-[rgb(23,17,15)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold">
+          Lattice Blogs
         </h1>
       </div>
 
